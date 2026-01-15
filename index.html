@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Google Fonts - Premium Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Primary Meta Tags -->
+    <title>MUVELO - Illuminate Your Everyday Moments | Premium Lighting Solutions</title>
+    <meta
+      name="description"
+      content="MUVELO transforms your space with lighting that adapts to your life. Every lamp is designed to move with you, creating ambiance that evolves with your perspective. Discover premium lighting solutions for modern living."
+    />
+    <meta
+      name="keywords"
+      content="MUVELO, premium lamps, modern lighting, adaptive lighting, home lighting, interior lighting, designer lamps, lighting solutions, contemporary lamps, smart lighting, ambient lighting, decorative lamps"
+    />
+    <meta name="author" content="MUVELO" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#000000" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://muvelo.com" />
+    <meta
+      property="og:title"
+      content="MUVELO - Illuminate Your Everyday Moments"
+    />
+    <meta
+      property="og:description"
+      content="Transform your space with lighting that adapts to your life. Every MUVELO lamp is designed to move with you, creating ambiance that evolves with your perspective."
+    />
+    <meta property="og:image" content="https://muvelo.com/logo.png" />
+    <meta property="og:site_name" content="MUVELO" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://muvelo.com" />
+    <meta name="twitter:title" content="MUVELO - Illuminate Your Everyday Moments" />
+    <meta name="twitter:description" content="Transform your space with lighting that adapts to your life. Premium lighting solutions for modern living." />
+    <meta name="twitter:image" content="https://muvelo.com/logo.png" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Brand",
+        "@id": "https://muvelo.com",
+        "name": "MUVELO",
+        "alternateName": "Muvelo",
+        "url": "https://muvelo.com",
+        "logo": "https://muvelo.com/logo.png",
+        "image": "https://muvelo.com/logo.png",
+        "description": "MUVELO transforms your space with lighting that adapts to your life. Every lamp is designed to move with you, creating ambiance that evolves with your perspective. Premium lighting solutions for modern living.",
+        "slogan": "Illuminate Your Everyday Moments",
+        "sameAs": [
+          "https://www.instagram.com/muvelo",
+          "https://www.facebook.com/muvelo",
+          "https://www.twitter.com/muvelo"
+        ],
+        "makesOffer": {
+          "@type": "Offer",
+          "itemOffered": [
+            {
+              "@type": "Product",
+              "name": "Premium Lamps",
+              "description": "Designer lamps that adapt to your life and create evolving ambiance",
+              "category": "Lighting",
+              "brand": {
+                "@type": "Brand",
+                "name": "MUVELO"
+              }
+            },
+            {
+              "@type": "Product",
+              "name": "Modern Lighting Solutions",
+              "description": "Contemporary lighting solutions for modern living spaces",
+              "category": "Lighting",
+              "brand": {
+                "@type": "Brand",
+                "name": "MUVELO"
+              }
+            }
+          ]
+        }
+      }
+    </script>
+
+    <!-- Suppress Three.js multiple instance warning -->
+    <script>
+      // Suppress Three.js multiple instance warning (model-viewer includes its own Three.js)
+      const originalWarn = console.warn;
+      console.warn = function(...args) {
+        if (args[0] && typeof args[0] === 'string' && args[0].includes('Multiple instances of Three.js')) {
+          return; // Suppress this specific warning
+        }
+        originalWarn.apply(console, args);
+      };
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
