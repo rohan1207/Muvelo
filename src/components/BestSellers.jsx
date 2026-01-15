@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { motion } from "framer-motion";
+import { getCloudinaryImageUrl } from "../utils/cloudinary";
 
-// Placeholder data – replace imageSrc, price, etc. with real product data
-const BESTSELLERS = [
+// Base data – Cloudinary URLs will be generated
+const BESTSELLERS_BASE = [
   {
     id: 1,
     badge: "NEW LAUNCH",
@@ -12,7 +13,7 @@ const BESTSELLERS = [
     mrp: "₹19,999",
     rating: "4.8",
     reviews: "112",
-    imageSrc: "/product1.webp",
+    imageId: "product1",
   },
   {
     id: 2,
@@ -23,7 +24,7 @@ const BESTSELLERS = [
     mrp: "₹14,999",
     rating: "4.9",
     reviews: "98",
-    imageSrc: "/product2.webp",
+    imageId: "product2",
   },
   {
     id: 3,
@@ -34,7 +35,7 @@ const BESTSELLERS = [
     mrp: "₹11,499",
     rating: "4.7",
     reviews: "76",
-    imageSrc: "/product3.webp",
+    imageId: "product3",
   },
   {
     id: 4,
@@ -45,7 +46,7 @@ const BESTSELLERS = [
     mrp: "₹17,999",
     rating: "4.9",
     reviews: "134",
-    imageSrc: "/product4.webp",
+    imageId: "product4",
   },
   {
     id: 5,
@@ -56,7 +57,7 @@ const BESTSELLERS = [
     mrp: "₹19,999",
     rating: "4.8",
     reviews: "112",
-    imageSrc: "/product5.webp",
+    imageId: "product5",
   },
   {
     id: 6,
@@ -67,7 +68,7 @@ const BESTSELLERS = [
     mrp: "₹14,999",
     rating: "4.9",
     reviews: "98",
-    imageSrc: "/product6.webp",
+    imageId: "product6",
   },
   {
     id: 7,
@@ -78,7 +79,7 @@ const BESTSELLERS = [
     mrp: "₹11,499",
     rating: "4.7",
     reviews: "76",
-    imageSrc: "/product7.webp",
+    imageId: "product7",
   },
   {
     id: 8,
@@ -89,12 +90,25 @@ const BESTSELLERS = [
     mrp: "₹17,999",
     rating: "4.9",
     reviews: "134",
-    imageSrc: "/product8.webp",
+    imageId: "product8",
   },
 ];
 
 const BestSellers = ({ theme = "dark" }) => {
   const isDark = theme === "dark";
+
+  // Generate Cloudinary URLs for all products
+  const BESTSELLERS = useMemo(() => {
+    return BESTSELLERS_BASE.map(item => ({
+      ...item,
+      imageSrc: getCloudinaryImageUrl(item.imageId, {
+        quality: 'auto:good',
+        format: 'auto',
+        width: 'auto',
+        crop: 'scale',
+      }),
+    }));
+  }, []);
 
   const bgClass = isDark
     ? "bg-gradient-to-b from-black via-[#050505] to-black"

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Quote } from 'lucide-react';
+import { getCloudinaryImageUrl } from '../utils/cloudinary';
 
 
 
@@ -65,13 +66,23 @@ Our collection, Ekkam, celebrates portability, modularity, and sustainable desig
 
       {/* Floating Decorative Elements */}
       <FloatingDish 
-        src="/om1.png"
+        src={getCloudinaryImageUrl('om1', {
+          quality: 'auto:good',
+          format: 'auto',
+          width: 'auto',
+          crop: 'scale',
+        })}
         alt="Delicious Soup" 
         className=" w-48 h-48 top-[68%] sm:w-72 sm:h-72 sm:top-[35%] -translate-y-1/2  left-[0%]sm:left-[-2%]"
         animation={{ y: [0, -15, 0], transition: { duration: 5, repeat: Infinity, ease: 'easeInOut' } }}
       />
       <FloatingDish 
-        src="/om2.png" 
+        src={getCloudinaryImageUrl('om2', {
+          quality: 'auto:good',
+          format: 'auto',
+          width: 'auto',
+          crop: 'scale',
+        })} 
         alt="Healthy Chicken" 
         className=" w-48 h-48 sm:w-72 sm:h-72 top-[-2%] sm:top-[10%] -translate-y-[70%]  right-[0%] sm:right-[0%]"
         animation={{ y: [0, 15, 0], transition: { duration: 6, repeat: Infinity, ease: 'easeInOut' } }}

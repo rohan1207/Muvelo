@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { getCloudinaryImageUrl } from '../utils/cloudinary';
 
 function MobileMessage() {
   return (
@@ -17,7 +18,12 @@ function MobileMessage() {
           className="mb-8 flex justify-center"
         >
           <img
-            src="/logo.png"
+            src={getCloudinaryImageUrl('logo', {
+              quality: 'auto:good',
+              format: 'auto',
+              width: 'auto',
+              crop: 'scale',
+            })}
             alt="MUVELO"
             className="h-16 w-auto object-contain"
           />

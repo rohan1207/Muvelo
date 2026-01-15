@@ -2,6 +2,7 @@ import { useRef, useState, useEffect, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useGLTF, OrbitControls, Environment, ContactShadows } from '@react-three/drei';
 import * as THREE from 'three';
+import { getCloudinaryImageUrl } from '../utils/cloudinary';
 
 // Inner component that uses Three.js hooks - must be inside Canvas
 const LampModelScene = ({ isHovered, onHoverChange, onModelsLoaded }) => {
@@ -309,7 +310,12 @@ const LampModels = () => {
           }}
         >
           <img
-            src="/wcu.png"
+            src={getCloudinaryImageUrl('wcu', {
+              quality: 'auto:good',
+              format: 'auto',
+              width: 'auto',
+              crop: 'scale',
+            })}
             alt="Loading lamp"
             className="w-auto h-auto max-w-[80%] max-h-[80%] object-contain opacity-90"
             style={{

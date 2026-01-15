@@ -1,6 +1,7 @@
 import { useRef, useMemo } from 'react';
 import SplashCursor from './SplashCursor';
 import { useScroll, useTransform, motion } from 'framer-motion';
+import { getCloudinaryImageUrl } from '../utils/cloudinary';
 
 function Hero({ theme = 'dark' }) {
   const containerRef = useRef(null);
@@ -58,6 +59,23 @@ function Hero({ theme = 'dark' }) {
 
   // Vibrant gradient for MUVELO text - same for both themes
   const muveloGradient = 'linear-gradient(90deg, #f97316, #fb7185, #eab308)';
+
+  // Cloudinary URLs for hero images - high quality, fast loading
+  const heroImageUrl = useMemo(() => {
+    return isDark
+      ? getCloudinaryImageUrl('heroimg', {
+          quality: 'auto:good', // High quality (90-95%)
+          format: 'auto', // Auto WebP/AVIF
+          width: 1920, // Max width for HD
+          crop: 'scale', // Scale proportionally
+        })
+      : getCloudinaryImageUrl('heroimg_day', {
+          quality: 'auto:good', // High quality (90-95%)
+          format: 'auto', // Auto WebP/AVIF
+          width: 1920, // Max width for HD
+          crop: 'scale', // Scale proportionally
+        });
+  }, [isDark]);
 
   return (
     <div 
@@ -157,7 +175,7 @@ function Hero({ theme = 'dark' }) {
         />
         
         <img
-          src={isDark ? "/heroimg.png" : "/heroimg_day.png"}
+          src={heroImageUrl}
           alt="Hero"
           className="w-full h-auto"
           style={{
@@ -173,9 +191,11 @@ function Hero({ theme = 'dark' }) {
             imageRendering: 'auto'
           }}
           loading="eager"
+          fetchPriority="high"
           decoding="async"
           onError={(e) => {
-            e.target.style.display = 'none';
+            // Fallback to local image if Cloudinary fails
+            e.target.src = isDark ? "/heroimg.png" : "/heroimg_day.png";
           }}
         />
       </motion.div>

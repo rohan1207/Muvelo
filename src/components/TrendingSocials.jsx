@@ -1,67 +1,83 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { motion } from "framer-motion";
+import { getCloudinaryVideoUrl } from "../utils/cloudinary";
 
-// Simple data config – replace videoSrc with your real URLs
-const TRENDING_VIDEOS = [
+// Base data config – Cloudinary URLs will be generated (video2 skipped as it failed to upload)
+const TRENDING_VIDEOS_BASE = [
   {
     id: 1,
     title: "Muvelo | Studio Collection",
     subtitle: "Captured in natural light",
-    videoSrc: "/video1.mp4",
+    videoId: "video1",
   },
   {
     id: 2,
     title: "Muvelo | Evening Glow",
     subtitle: "Soft ambient scenes",
-    videoSrc: "/video2.mp4",
+    videoId: "video2", // This failed to upload, will use local fallback
+    useLocal: true,
   },
   {
     id: 3,
     title: "Muvelo | Crafted Details",
     subtitle: "A closer look at texture",
-    videoSrc: "/video3.mp4",
+    videoId: "video3",
   },
   {
     id: 4,
     title: "Muvelo | In the Wild",
     subtitle: "Styled interiors",
-    videoSrc: "/video4.mp4",
+    videoId: "video4",
   },
   {
     id: 5,
     title: "Muvelo | In the Wild",
     subtitle: "Styled interiors",
-    videoSrc: "/video5.mp4",
+    videoId: "video5",
   },
   {
     id: 6,
     title: "Muvelo | In the Wild",
     subtitle: "Styled interiors",
-    videoSrc: "/video6.mp4",
+    videoId: "video6",
   },
   {
     id: 7,
     title: "Muvelo | In the Wild",
     subtitle: "Styled interiors",
-    videoSrc: "/video7.mp4",
+    videoId: "video7",
   },
   {
     id: 8,
     title: "Muvelo | In the Wild",
     subtitle: "Styled interiors",
-    videoSrc: "/video8.mp4",
+    videoId: "video8", // Not in upload list, will use local fallback
+    useLocal: true,
   },
   {
     id: 9,
     title: "Muvelo | In the Wild",
     subtitle: "Styled interiors",
-    videoSrc: "/video9.mp4",
+    videoId: "video9",
   },
-  
 ];
 
 const TrendingSocials = ({ theme = "dark" }) => {
   const isDark = theme === "dark";
+
+  // Generate Cloudinary URLs for videos (skip video2 and video8 - use local fallback)
+  const TRENDING_VIDEOS = useMemo(() => {
+    return TRENDING_VIDEOS_BASE.map(item => ({
+      ...item,
+      videoSrc: item.useLocal 
+        ? `/${item.videoId}.mp4` // Local fallback for video2 and video8
+        : getCloudinaryVideoUrl(item.videoId, {
+            quality: 'auto:good',
+            format: 'auto',
+            width: 'auto',
+          }),
+    }));
+  }, []);
 
   // Match LiveDemo color theme
   const bgClass = isDark

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { getCloudinaryImageUrl } from '../utils/cloudinary';
 
 function NavBar({ theme = 'dark' }) {
   const isDark = theme === 'dark';
@@ -115,7 +116,12 @@ function NavBar({ theme = 'dark' }) {
             <div className="flex items-center justify-center">
               <Link to="/" className="flex items-center">
                 <img
-                  src="/logo.png"
+                  src={getCloudinaryImageUrl('logo', {
+                    quality: 'auto:good',
+                    format: 'auto',
+                    width: 'auto',
+                    crop: 'scale',
+                  })}
                   alt="MUVELO"
                   className="h-12 sm:h-14 lg:h-16 w-auto object-contain scale-150"
                 />

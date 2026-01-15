@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { Lightbulb, Award, Battery, Leaf, MapPin, Grid } from "lucide-react";
+import { getCloudinaryImageUrl } from "../utils/cloudinary";
 
 const features = [
   {
@@ -132,7 +133,12 @@ const WhyChooseUs = ({ theme = 'dark' }) => {
           style={{ y, scale, rotate }}
         >
           <img
-            src="/wcu.png"
+            src={getCloudinaryImageUrl('wcu', {
+              quality: 'auto:good',
+              format: 'auto',
+              width: 'auto',
+              crop: 'scale',
+            })}
             alt="Fresh Tomato"
             className="w-full h-full object-contain drop-shadow-2xl"
           />

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { getCloudinaryVideoUrl } from '../utils/cloudinary';
 
 const LiveDemo = ({ theme = 'dark' }) => {
   const isDark = theme === 'dark';
@@ -70,7 +71,11 @@ const LiveDemo = ({ theme = 'dark' }) => {
           {/* Right Panel - Video */}
           <div className="relative w-full h-[300px] sm:h-[350px] lg:h-[400px] bg-black">
             <video
-              src="/showvideo1.mp4"
+              src={getCloudinaryVideoUrl('showvideo1', {
+                quality: 'auto:good',
+                format: 'auto',
+                width: 'auto',
+              })}
               autoPlay
               muted
               loop

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { getCloudinaryImageUrl } from '../utils/cloudinary';
 
 function Footer({ theme = 'dark' }) {
   const isDark = theme === 'dark';
@@ -25,7 +26,12 @@ function Footer({ theme = 'dark' }) {
           <div className="flex flex-col">
             <Link to="/" className="inline-block mb-4">
               <img
-                src="/logo.png"
+                src={getCloudinaryImageUrl('logo', {
+                  quality: 'auto:good',
+                  format: 'auto',
+                  width: 'auto',
+                  crop: 'scale',
+                })}
                 alt="MUVELO"
                 className="h-10 sm:h-12 w-auto object-contain"
               />

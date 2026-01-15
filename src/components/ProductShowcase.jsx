@@ -1,70 +1,90 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { getCloudinaryImageUrl } from "../utils/cloudinary";
 
 // Product data - 8 products total (2 rows x 4 columns)
 // Each product has off and on image variants
-const PRODUCTS = [
+const PRODUCTS_BASE = [
   {
     id: 1,
     name: "Muvelo Classic",
     price: "₹12,999",
-    imageOff: "/product1-off.png",
-    imageOn: "/product1.webp",
+    imageOffId: "product1-off",
+    imageOnId: "product1",
   },
   {
     id: 2,
     name: "Muvelo Modern",
     price: "₹15,499",
-    imageOff: "/product2-off.png",
-    imageOn: "/product2.webp",
+    imageOffId: "product2-off",
+    imageOnId: "product2",
   },
   {
     id: 3,
     name: "Muvelo Elegant",
     price: "₹18,999",
-    imageOff: "/product3-off.png",
-    imageOn: "/product3.webp",
+    imageOffId: "product3-off",
+    imageOnId: "product3",
   },
   {
     id: 4,
     name: "Muvelo Premium",
     price: "₹22,499",
-    imageOff: "/product4-off.png",
-    imageOn: "/product4.webp",
+    imageOffId: "product4-off",
+    imageOnId: "product4",
   },
   {
     id: 5,
     name: "Muvelo Studio",
     price: "₹14,999",
-    imageOff: "/product5-off.png",
-    imageOn: "/product5.webp",
+    imageOffId: "product5-off",
+    imageOnId: "product5",
   },
   {
     id: 6,
     name: "Muvelo Luxe",
     price: "₹19,999",
-    imageOff: "/product6-off.png",
-    imageOn: "/product6.webp",
+    imageOffId: "product6-off",
+    imageOnId: "product6",
   },
   {
     id: 7,
     name: "Muvelo Artisan",
     price: "₹16,499",
-    imageOff: "/product7-off.png",
-    imageOn: "/product7.webp",
+    imageOffId: "product7-off",
+    imageOnId: "product7",
   },
   {
     id: 8,
     name: "Muvelo Signature",
     price: "₹24,999",
-    imageOff: "/product8-off.png",
-    imageOn: "/product8.webp",
+    imageOffId: "product8-off",
+    imageOnId: "product8",
   },
 ];
 
 const ProductShowcase = ({ theme = "dark" }) => {
   const [isOn, setIsOn] = useState(false);
   const isDark = theme === "dark";
+
+  // Generate Cloudinary URLs for all products
+  const PRODUCTS = useMemo(() => {
+    return PRODUCTS_BASE.map(product => ({
+      ...product,
+      imageOff: getCloudinaryImageUrl(product.imageOffId, {
+        quality: 'auto:good',
+        format: 'auto',
+        width: 'auto',
+        crop: 'scale',
+      }),
+      imageOn: getCloudinaryImageUrl(product.imageOnId, {
+        quality: 'auto:good',
+        format: 'auto',
+        width: 'auto',
+        crop: 'scale',
+      }),
+    }));
+  }, []);
 
   const bgClass = isDark
     ? "bg-gradient-to-b from-black via-[#050505] to-black"

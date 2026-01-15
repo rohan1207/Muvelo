@@ -1,4 +1,5 @@
 import React from 'react';
+import { getCloudinaryImageUrl } from '../utils/cloudinary';
 
 const Banner = ({ theme = 'dark' }) => {
   const isDark = theme === 'dark';
@@ -11,7 +12,12 @@ const Banner = ({ theme = 'dark' }) => {
       <div className="w-full max-w-7xl mx-auto">
         <div className={`${imageBg} rounded-2xl overflow-hidden shadow-xl p-4 sm:p-6`}>
           <img
-            src="/banner.png"
+            src={getCloudinaryImageUrl('banner', {
+              quality: 'auto:good',
+              format: 'auto',
+              width: 'auto',
+              crop: 'scale',
+            })}
             alt="Banner"
             className="w-full h-auto max-h-[50vh] object-contain"
             loading="lazy"
