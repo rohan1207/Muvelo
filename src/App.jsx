@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LandingPage from './pages/LandingPage';
 import Home from './pages/Home';
+import Home3 from './pages/Home3';
+import Products from './pages/Products';
+import ProductDetail from './pages/ProductDetail';
 import MobileMessage from './components/MobileMessage';
 import './App.css';
 
@@ -25,14 +29,19 @@ function App() {
   }, []);
 
   // Show mobile message on small screens
-  if (isMobile) {
-    return <MobileMessage />;
-  }
+  // if (isMobile) {
+  //   return <MobileMessage />;
+  // }
 
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/home2" element={<Home3 />} />
+        <Route path="/home3" element={<Home3 />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/products/:slug" element={<ProductDetail />} />
       </Routes>
     </Router>
   );

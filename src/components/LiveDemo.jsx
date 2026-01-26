@@ -47,7 +47,7 @@ const LiveDemo = ({ theme = 'dark' }) => {
                   to="/products"
                   className={`relative z-10 inline-block ${buttonBg} text-white px-8 py-3 rounded-full font-semibold text-sm sm:text-base shadow-lg transition-colors duration-300 overflow-hidden`}
                 >
-                  <span className="relative z-30">Explore Collection</span>
+                  <span className="relative z-30">Shop Now</span>
                   
                   {/* Shiny glass shine effect - moves from left to right */}
                   <motion.div
@@ -71,11 +71,12 @@ const LiveDemo = ({ theme = 'dark' }) => {
           {/* Right Panel - Video */}
           <div className="relative w-full h-[300px] sm:h-[350px] lg:h-[400px] bg-black">
             <video
-              src={getCloudinaryVideoUrl('showvideo1', {
-                quality: 'auto:good',
-                format: 'auto',
-                width: 'auto',
-              })}
+            src="/live.mp4"
+              // src={getCloudinaryVideoUrl('showvideo1', {
+              //   quality: 'auto:good',
+              //   format: 'auto',
+              //   width: 'auto',
+              // })}
               autoPlay
               muted
               loop

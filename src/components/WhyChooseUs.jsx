@@ -76,17 +76,17 @@ const WhyChooseUs = ({ theme = 'dark' }) => {
   return (
     <div
       ref={containerRef}
-      className={`relative ${bgClass} py-16 sm:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden`}
+      className={`relative ${bgClass} py-10 sm:py-14 md:py-16 lg:py-24 px-4 sm:px-6 md:px-8 overflow-hidden`}
     >
       <div className="relative max-w-7xl mx-auto">
         {/* Title Section */}
-        <div className="text-center mb-12 sm:mb-16">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
           <motion.h3
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className={`text-sm font-bold ${headingColor} tracking-widest uppercase`}
+            className={`text-xs sm:text-sm md:text-base font-bold ${headingColor} tracking-[0.18em] uppercase`}
           >
             WHY CHOOSE US?
           </motion.h3>
@@ -95,14 +95,14 @@ const WhyChooseUs = ({ theme = 'dark' }) => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className={`mt-2 text-3xl sm:text-4xl font-bold ${titleColor} tracking-tight lg:text-4xl`}
+            className={`mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold ${titleColor} leading-tight px-2`}
           >
             ILLUMINATE WITH <span className="text-red-600">CONFIDENCE</span>
           </motion.h2>
         </div>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 sm:gap-x-8 sm:gap-y-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 sm:gap-x-6 md:gap-x-8 gap-y-6 sm:gap-y-8 md:gap-y-12">
           {features.map((feature, index) => (
             <motion.div
               key={index}
@@ -110,16 +110,16 @@ const WhyChooseUs = ({ theme = 'dark' }) => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`flex items-start ${cardBg} ${cardHover} p-4 sm:p-6 rounded-2xl hover:shadow-xl transition-all duration-500`}
+              className={`flex items-start ${cardBg} ${cardHover} p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl hover:shadow-xl transition-all duration-500`}
             >
-              <div className={`flex-shrink-0 ${iconBg} p-3 rounded-full`}>
-                <feature.Icon size={32} className={iconColor} />
+              <div className={`flex-shrink-0 ${iconBg} p-2.5 sm:p-3 rounded-full`}>
+                <feature.Icon size={24} className={`sm:w-8 sm:h-8 ${iconColor}`} />
               </div>
-              <div className="ml-4">
-                <h4 className={`text-base sm:text-lg font-light ${textColor} tracking-wide`}>
+              <div className="ml-3 sm:ml-4">
+                <h4 className={`text-sm sm:text-base md:text-lg font-semibold ${textColor} tracking-wide`}>
                   {feature.title}
                 </h4>
-                <p className={`mt-1 text-sm sm:text-base ${subTextColor} font-light leading-relaxed`}>
+                <p className={`mt-1 text-xs sm:text-sm md:text-base ${subTextColor} leading-relaxed`}>
                   {feature.description}
                 </p>
               </div>
@@ -129,7 +129,7 @@ const WhyChooseUs = ({ theme = 'dark' }) => {
 
         {/* Animated Tomato Image */}
         <motion.div
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 sm:left-auto sm:top-[-15%] sm:right-[-10%] sm:translate-x-0 sm:translate-y-0 w-52 sm:w-60 h-52 sm:h-60 z-0 pointer-events-none opacity-40 sm:opacity-100"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 sm:left-auto sm:top-[-15%] sm:right-[-10%] sm:translate-x-0 sm:translate-y-0 w-40 h-40 sm:w-52 sm:h-52 md:w-60 md:h-60 z-0 pointer-events-none opacity-30 sm:opacity-40 md:opacity-100"
           style={{ y, scale, rotate }}
         >
           <img

@@ -34,7 +34,7 @@ function MobileMessage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.6 }}
-          className="text-3xl sm:text-4xl font-bold text-white mb-6 leading-tight"
+          className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight"
         >
           Coming Soon
         </motion.h1>
@@ -43,7 +43,7 @@ function MobileMessage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6, duration: 0.6 }}
-          className="text-lg text-gray-300 mb-8 leading-relaxed"
+          className="text-sm sm:text-base text-gray-300 mb-8 leading-relaxed"
         >
           Team Stelora is working hard on it. The mobile experience will be available soon!
         </motion.p>
@@ -54,10 +54,10 @@ function MobileMessage() {
           transition={{ delay: 0.8, duration: 0.6 }}
           className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 mb-8"
         >
-          <p className="text-white text-base mb-2 font-semibold">
+          <p className="text-white text-sm sm:text-base mb-2 font-semibold">
             📱 Please visit on desktop
           </p>
-          <p className="text-gray-300 text-sm">
+          <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
             For the best experience, please access MUVELO on a desktop or tablet screen.
           </p>
         </motion.div>
@@ -67,7 +67,7 @@ function MobileMessage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.6 }}
-          className="text-sm text-gray-400"
+          className="text-sm sm:text-base text-gray-400"
         >
           <p>
             Designed and developed by{' '}

@@ -31,14 +31,14 @@ const Ribbon = ({ theme = 'dark' }) => {
     },
   };
 
-  // Theme-aware colors
+  // Match LiveDemo color theme
   const bgColor = isDark ? 'bg-black' : 'bg-[#FAF9F6]';
   const textColor = isDark ? 'text-white' : 'text-[#1a1a1a]';
-  const outlineColor = isDark ? '#fff8e1' : '#A0826D'; // Cream for dark, beige for light
+  const outlineColor = isDark ? '#ffffff' : '#1a1a1a';
 
   const Word = ({ children, isOutlined }) => (
     <span
-      className={`text-5xl sm:text-6xl lg:text-8xl font-black uppercase whitespace-nowrap mx-4 sm:mx-6 lg:mx-8 ${
+      className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-black uppercase whitespace-nowrap mx-3 sm:mx-4 md:mx-6 lg:mx-8 ${
         isOutlined ? "text-transparent" : textColor
       }`}
       style={
@@ -52,7 +52,7 @@ const Ribbon = ({ theme = 'dark' }) => {
   );
 
   return (
-    <section className={`py-8 sm:py-10 lg:py-12 ${bgColor} overflow-hidden`}>
+    <section className={`py-6 sm:py-8 md:py-10 lg:py-12 ${bgColor} overflow-hidden`}>
       <motion.div className="flex" variants={marqueeVariants} animate="animate">
         <div className="flex">
           {[...words, ...words].map((word, index) => (

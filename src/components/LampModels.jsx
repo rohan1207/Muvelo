@@ -201,7 +201,7 @@ const LampModelScene = ({ isHovered, onHoverChange, onModelsLoaded }) => {
           <primitive 
             key={`lamp-model-${modelIndex}`}
             object={lampModel} 
-            scale={2.6}
+            scale={2.0}
           />
         )}
 
@@ -292,7 +292,7 @@ const LampModels = () => {
 
   return (
     <div 
-      className="w-full h-screen relative"
+      className="w-full h-full relative"
       style={{
         willChange: 'auto',
         transform: 'translateZ(0)',
@@ -326,7 +326,7 @@ const LampModels = () => {
       )}
       
       <Canvas
-        camera={{ position: [0, 0, 5], fov: 50 }}
+        camera={{ position: [0, 0, 6.5], fov: 45 }}
         style={{ 
           background: 'transparent',
           zIndex: 15,

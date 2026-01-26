@@ -90,10 +90,6 @@ const TrendingSocials = ({ theme = "dark" }) => {
   // Card theme styles - matching LiveDemo
   const cardBg = isDark ? "bg-[#1a1a1a]" : "bg-white";
   const cardBorder = isDark ? "border-white/10" : "border-gray-200/50";
-  const cardShadow = isDark 
-    ? "shadow-[0_18px_60px_rgba(0,0,0,0.55)]" 
-    : "shadow-[0_18px_60px_rgba(0,0,0,0.1)]";
-  const videoBg = isDark ? "bg-black" : "bg-gray-100";
   // Red theme badge matching LiveDemo
   const badgeBg = isDark ? "bg-red-600/20 border-red-600/30" : "bg-red-600/10 border-red-600/20";
   const badgeText = isDark ? "text-red-400" : "text-red-600";
@@ -102,23 +98,19 @@ const TrendingSocials = ({ theme = "dark" }) => {
 
   return (
     <section
-      className={`w-full ${bgClass} py-20 sm:py-24 px-4 sm:px-8 overflow-hidden`}
+      className={`w-full ${bgClass} py-8 sm:py-12 md:py-14 lg:py-16 px-4 sm:px-6 md:px-8 overflow-hidden`}
     >
-      <div className="max-w-7xl mx-auto space-y-8 sm:space-y-10">
+      <div className="max-w-7xl mx-auto space-y-4 sm:space-y-5 md:space-y-6 lg:space-y-8">
         {/* Heading */}
-        <div className="space-y-3 sm:space-y-4">
+        <div className="space-y-1.5 sm:space-y-2 md:space-y-3">
           <h2
-            className={`font-playfair text-3xl sm:text-4xl md:text-5xl font-semibold ${headingColor}`}
+            className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold ${headingColor} leading-tight`}
           >
             Trending on <span className="text-red-600">socials</span>
           </h2>
+          
           <p
-            className={`font-playfair text-2xl sm:text-3xl md:text-4xl font-normal ${headingColor}`}
-          >
-            right now
-          </p>
-          <p
-            className={`text-sm sm:text-base font-light ${subColor} max-w-xl`}
+            className={`text-xs sm:text-sm md:text-base ${subColor} max-w-xl leading-relaxed`}
           >
             A live glimpse into how Muvelo lights up real spaces across social
             feeds – updated with our most loved moments.
@@ -128,7 +120,7 @@ const TrendingSocials = ({ theme = "dark" }) => {
         {/* Horizontal scroll area – clean, no fades, hidden scrollbar */}
         <div className="relative">
           <div
-            className="flex gap-6 sm:gap-8 overflow-x-auto pb-2 sm:pb-3 snap-x snap-mandatory scrollbar-hide"
+            className="flex gap-3 sm:gap-4 md:gap-6 overflow-x-auto pb-2 sm:pb-3 snap-x snap-mandatory scrollbar-hide -mx-4 sm:-mx-6 md:-mx-8 px-4 sm:px-6 md:px-8"
             style={{
               scrollSnapType: "x mandatory",
             }}
@@ -136,35 +128,39 @@ const TrendingSocials = ({ theme = "dark" }) => {
             {TRENDING_VIDEOS.map((item) => (
               <motion.article
                 key={item.id}
-                className={`snap-start flex-shrink-0 w-[220px] sm:w-[260px] md:w-[280px] rounded-3xl overflow-hidden ${cardBg} border ${cardBorder} ${cardShadow}`}
-                whileHover={{ y: -6, scale: 1.02 }}
+                className={`snap-start flex-shrink-0 w-[160px] sm:w-[180px] md:w-[210px] lg:w-[230px] rounded-md overflow-hidden ${cardBg} border ${cardBorder} group`}
+                
+               
                 transition={{ type: "spring", stiffness: 220, damping: 24 }}
               >
-                <div className={`relative aspect-[9/16] ${videoBg}`}>
-                  <video
-                    src={item.videoSrc}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                    className="w-full h-full object-cover"
-                  />
+                <div className="relative aspect-[9/16] overflow-hidden bg-transparent">
+                  <div className="w-full h-full overflow-hidden">
+                    <video
+                      src={item.videoSrc}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      className="w-full h-full object-cover transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.15] group-hover:-translate-y-[10%]"
+                      style={{ transformOrigin: 'center top' }}
+                    />
+                  </div>
 
                   {/* Branding tag */}
-                  <div className={`absolute top-3 left-3 px-3 py-1 rounded-full ${badgeBg} backdrop-blur-sm`}>
-                    <span className={`text-[10px] tracking-[0.16em] uppercase ${badgeText} font-medium`}>
+                  <div className={`absolute top-1.5 sm:top-2 left-1.5 sm:left-2 px-2 sm:px-2.5 py-0.5 rounded-full ${badgeBg} backdrop-blur-sm z-10`}>
+                    <span className={`text-[8px] sm:text-[9px] tracking-[0.16em] uppercase ${badgeText} font-medium`}>
                       @muvelo.lamps
                     </span>
                   </div>
                 </div>
 
                 {/* Meta */}
-                <div className="px-4 py-3 space-y-1.5">
-                  <h3 className={`text-sm font-medium ${titleColor} line-clamp-2`}>
+                <div className="px-2.5 sm:px-3 py-2 sm:py-2.5 space-y-0.5 sm:space-y-1">
+                  <h3 className={`text-xs sm:text-sm md:text-base font-semibold ${titleColor} line-clamp-2`}>
                     {item.title}
                   </h3>
-                  <p className={`text-[11px] ${subtitleColor} line-clamp-2`}>
+                  <p className={`text-[10px] sm:text-xs md:text-sm ${subtitleColor} line-clamp-2 leading-relaxed`}>
                     {item.subtitle}
                   </p>
                 </div>

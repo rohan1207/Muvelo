@@ -1,0 +1,518 @@
+[
+  {
+    "id": "muvelo-classic",
+    "name": "Muvelo Classic",
+    "collection": "Studio Collection",
+    "badge": "NEW LAUNCH",
+    "slug": "muvelo-classic",
+    "shortDescription": "Sculpted wireless table lamp with a warm, diffused glow. Designed for everyday rituals and slow evenings.",
+    "longDescription": "Muvelo Classic is our original sculpted lamp – a soft, diffused orb of light that feels timeless and familiar. Hand-finished with a satin texture, it casts a warm pool of glow that flatters skin tones, dinner tables, and quiet corners alike. Built for flexibility with cable‑free portability and all‑day battery life.",
+    "price": 12999,
+    "mrp": 19999,
+    "currency": "INR",
+    "images": {
+      "off": "/product1-off.png",
+      "on": "/product1.webp",
+      "gallery": [
+        "/product1.webp",
+        "/product1-off.png",
+        "/heroimg_day.png"
+      ],
+      "beforeAfter": {
+        "before": "/product7_before.png",
+        "after": "/product7_after.webp"
+      }
+    },
+    "primaryUse": ["Dining table", "Bedside", "Reading corner"],
+    "colors": [
+      { "id": "sandstone", "name": "Sandstone", "hex": "#E9D5B5", "isDefault": true },
+      { "id": "charcoal", "name": "Charcoal", "hex": "#1A1A1A" }
+    ],
+    "materials": [
+      "Bio‑plastic shell",
+      "Matte powder‑coated aluminium stem",
+      "Anti‑slip silicone base"
+    ],
+    "lightModes": [
+      { "id": "ambient", "label": "Ambient", "temperatureK": 2700, "description": "Soft, golden glow for evenings." },
+      { "id": "focus", "label": "Focus", "temperatureK": 3200, "description": "Slightly cooler for reading & work." },
+      { "id": "night", "label": "Night", "temperatureK": 2200, "description": "Ultra‑warm, barely‑there glow." }
+    ],
+    "battery": {
+      "lifeHours": "24+",
+      "chargeTimeHours": 3.5,
+      "connector": "USB‑C",
+      "fastChargeSupport": true,
+      "replaceable": false
+    },
+    "dimensions": {
+      "heightCm": 32,
+      "diameterCm": 18,
+      "weightKg": 0.85
+    },
+    "rating": {
+      "average": 4.8,
+      "count": 112
+    },
+    "flags": {
+      "isBestseller": true,
+      "isNew": true,
+      "isLimited": false
+    },
+    "tags": [
+      "bestseller",
+      "wireless",
+      "dimmable",
+      "warm-white",
+      "dining",
+      "bedside"
+    ]
+  },
+  {
+    "id": "muvelo-modern",
+    "name": "Muvelo Modern",
+    "collection": "City Collection",
+    "badge": "TRENDING",
+    "slug": "muvelo-modern",
+    "shortDescription": "Slim, architectural lamp with a clean silhouette for modern workspaces and living rooms.",
+    "longDescription": "Muvelo Modern pairs a clean, architectural profile with a soft edge glow that feels both sharp and gentle at once. The vertical ribbing catches light beautifully while the diffused core keeps things calm. Built for modern apartments, desks, consoles and media units.",
+    "price": 15499,
+    "mrp": 21499,
+    "currency": "INR",
+    "images": {
+      "off": "/product2-off.png",
+      "on": "/product2.webp",
+      "gallery": [
+        "/product2.webp",
+        "/product2-off.png",
+        "/heroimg_day1.png"
+      ],
+      "beforeAfter": {
+        "before": "/product7_before.png",
+        "after": "/product7_after.webp"
+      }
+    },
+    "primaryUse": ["Work desk", "Sideboard", "Console"],
+    "colors": [
+      { "id": "ink", "name": "Ink Black", "hex": "#111111", "isDefault": true },
+      { "id": "cloud", "name": "Cloud Grey", "hex": "#D4D4D8" }
+    ],
+    "materials": [
+      "Bio‑plastic shell",
+      "Brushed aluminium spine",
+      "Weighted steel base"
+    ],
+    "lightModes": [
+      { "id": "work", "label": "Work", "temperatureK": 3500, "description": "Crisp, low‑glare light for productivity." },
+      { "id": "evening", "label": "Evening", "temperatureK": 2800, "description": "Softened warmth for post‑work hours." }
+    ],
+    "battery": {
+      "lifeHours": "20+",
+      "chargeTimeHours": 3,
+      "connector": "USB‑C",
+      "fastChargeSupport": true,
+      "replaceable": false
+    },
+    "dimensions": {
+      "heightCm": 36,
+      "diameterCm": 16,
+      "weightKg": 0.9
+    },
+    "rating": {
+      "average": 4.9,
+      "count": 98
+    },
+    "flags": {
+      "isBestseller": true,
+      "isNew": false,
+      "isLimited": false
+    },
+    "tags": [
+      "trending",
+      "desk-lamp",
+      "architectural",
+      "workspace",
+      "wireless"
+    ]
+  },
+  {
+    "id": "muvelo-elegant",
+    "name": "Muvelo Elegant",
+    "collection": "Evening Collection",
+    "badge": "ICONIC",
+    "slug": "muvelo-elegant",
+    "shortDescription": "Tall, sculpted lamp that feels like a piece of art – made for dining and living spaces.",
+    "longDescription": "Muvelo Elegant is a tall, sculptural form inspired by stacked ceramics and soft fabric shades. It brings gallery‑level presence to any surface while staying completely wireless. Use it as a centre‑piece on large dining tables or as a statement glow in open living rooms.",
+    "price": 18999,
+    "mrp": 24999,
+    "currency": "INR",
+    "images": {
+      "off": "/product3-off.png",
+      "on": "/product3.webp",
+      "gallery": [
+        "/product3.webp",
+        "/product3-off.png",
+        "/heroimg_day2.png"
+      ],
+      "beforeAfter": {
+        "before": "/product7_before.png",
+        "after": "/product7_after.webp"
+      }
+    },
+    "primaryUse": ["Dining", "Entry console", "Hotels & lounges"],
+    "colors": [
+      { "id": "amber", "name": "Amber Glow", "hex": "#F6A623", "isDefault": true }
+    ],
+    "materials": [
+      "Bio‑plastic shell",
+      "Powder‑coated steel core",
+      "Soft‑touch silicone base"
+    ],
+    "lightModes": [
+      { "id": "dinner", "label": "Dinner", "temperatureK": 2400, "description": "Candle‑like, intimate glow." },
+      { "id": "gallery", "label": "Gallery", "temperatureK": 3000, "description": "Highlight textures, art and decor." }
+    ],
+    "battery": {
+      "lifeHours": "22+",
+      "chargeTimeHours": 3.5,
+      "connector": "USB‑C",
+      "fastChargeSupport": false,
+      "replaceable": false
+    },
+    "dimensions": {
+      "heightCm": 40,
+      "diameterCm": 19,
+      "weightKg": 1.0
+    },
+    "rating": {
+      "average": 4.7,
+      "count": 76
+    },
+    "flags": {
+      "isBestseller": true,
+      "isNew": false,
+      "isLimited": true
+    },
+    "tags": [
+      "iconic",
+      "statement-piece",
+      "dining",
+      "wireless"
+    ]
+  },
+  {
+    "id": "muvelo-premium",
+    "name": "Muvelo Premium",
+    "collection": "Signature Collection",
+    "badge": "MOST LOVED",
+    "slug": "muvelo-premium",
+    "shortDescription": "Flagship lamp with layered diffusion, premium materials and extended battery life.",
+    "longDescription": "Muvelo Premium is our flagship – a lamp that feels both familiar and futuristic. Multi‑layered diffusion hides the light source and reveals only a soft, floating glow. It’s designed to live on dining tables, consoles and low coffee tables where it becomes the quiet hero of the room.",
+    "price": 22499,
+    "mrp": 27999,
+    "currency": "INR",
+    "images": {
+      "off": "/product4-off.png",
+      "on": "/product4.webp",
+      "gallery": [
+        "/product4.webp",
+        "/product4-off.png",
+        "/heroimg5.png"
+      ],
+      "beforeAfter": {
+        "before": "/product7_before.png",
+        "after": "/product7_after.webp"
+      }
+    },
+    "primaryUse": ["Dining", "Living room", "Hospitality"],
+    "colors": [
+      { "id": "clay", "name": "Soft Clay", "hex": "#E1BFA5", "isDefault": true },
+      { "id": "stone", "name": "Stone", "hex": "#C4C4C4" }
+    ],
+    "materials": [
+      "Dual‑layer bio‑plastic shell",
+      "Machined aluminium details",
+      "Weighted base"
+    ],
+    "lightModes": [
+      { "id": "hosting", "label": "Hosting", "temperatureK": 2600, "description": "For dinners and long conversations." },
+      { "id": "cinema", "label": "Cinema", "temperatureK": 2200, "description": "Barely‑there glow for movie nights." }
+    ],
+    "battery": {
+      "lifeHours": "30+",
+      "chargeTimeHours": 4,
+      "connector": "USB‑C",
+      "fastChargeSupport": true,
+      "replaceable": false
+    },
+    "dimensions": {
+      "heightCm": 36,
+      "diameterCm": 21,
+      "weightKg": 1.1
+    },
+    "rating": {
+      "average": 4.9,
+      "count": 134
+    },
+    "flags": {
+      "isBestseller": true,
+      "isNew": false,
+      "isLimited": false
+    },
+    "tags": [
+      "most-loved",
+      "hosting",
+      "flagship",
+      "premium"
+    ]
+  },
+  {
+    "id": "muvelo-studio",
+    "name": "Muvelo Studio",
+    "collection": "Desk Collection",
+    "badge": "NEW LAUNCH",
+    "slug": "muvelo-studio",
+    "shortDescription": "Compact desk‑first lamp with directional glow and a tiny footprint.",
+    "longDescription": "Muvelo Studio is a compact, directionally‑aware lamp designed for desks, workstations and shelves. The soft cone of light stays focused on your work surface while the shell keeps glare away from your eyes.",
+    "price": 14999,
+    "mrp": 19999,
+    "currency": "INR",
+    "images": {
+      "off": "/product5-off.png",
+      "on": "/product5.webp",
+      "gallery": [
+        "/product5.webp",
+        "/product5-off.png"
+      ],
+      "beforeAfter": {
+        "before": "/product7_before.png",
+        "after": "/product7_after.webp"
+      }
+    },
+    "primaryUse": ["Work desk", "Study table", "Shelves"],
+    "colors": [
+      { "id": "chalk", "name": "Chalk White", "hex": "#F5F5F5", "isDefault": true }
+    ],
+    "materials": [
+      "Bio‑plastic shell",
+      "Aluminium arm",
+      "Recycled rubber base"
+    ],
+    "lightModes": [
+      { "id": "focus", "label": "Focus", "temperatureK": 3600, "description": "High clarity for focus sessions." }
+    ],
+    "battery": {
+      "lifeHours": "18+",
+      "chargeTimeHours": 3,
+      "connector": "USB‑C",
+      "fastChargeSupport": true,
+      "replaceable": false
+    },
+    "dimensions": {
+      "heightCm": 30,
+      "diameterCm": 14,
+      "weightKg": 0.75
+    },
+    "rating": {
+      "average": 4.8,
+      "count": 90
+    },
+    "flags": {
+      "isBestseller": false,
+      "isNew": true,
+      "isLimited": false
+    },
+    "tags": [
+      "desk",
+      "compact",
+      "focus-light"
+    ]
+  },
+  {
+    "id": "muvelo-luxe",
+    "name": "Muvelo Luxe",
+    "collection": "Luxe Collection",
+    "badge": "TRENDING",
+    "slug": "muvelo-luxe",
+    "shortDescription": "Glassy, liquid‑inspired lamp that looks like a sculpture when it’s off.",
+    "longDescription": "Muvelo Luxe brings a glass‑like sheen to our sculpted forms. It feels like a poured, liquid object when it’s off and comes alive with layered glow when switched on.",
+    "price": 19999,
+    "mrp": 25999,
+    "currency": "INR",
+    "images": {
+      "off": "/product6-off.png",
+      "on": "/product6.webp",
+      "gallery": [
+        "/product6.webp",
+        "/product6-off.png"
+      ],
+      "beforeAfter": {
+        "before": "/product7_before.png",
+        "after": "/product7_after.webp"
+      }
+    },
+    "primaryUse": ["Sideboard", "Bars", "Accent tables"],
+    "colors": [
+      { "id": "molten-gold", "name": "Molten Gold", "hex": "#F6C36A", "isDefault": true }
+    ],
+    "materials": [
+      "High‑gloss bio‑plastic shell",
+      "Polished aluminium accents"
+    ],
+    "lightModes": [
+      { "id": "spark", "label": "Spark", "temperatureK": 2800, "description": "Vivid, bright and punchy glow." },
+      { "id": "soft", "label": "Soft", "temperatureK": 2400, "description": "Dialed‑down shine for relaxed evenings." }
+    ],
+    "battery": {
+      "lifeHours": "24+",
+      "chargeTimeHours": 3.5,
+      "connector": "USB‑C",
+      "fastChargeSupport": true,
+      "replaceable": false
+    },
+    "dimensions": {
+      "heightCm": 34,
+      "diameterCm": 18,
+      "weightKg": 0.95
+    },
+    "rating": {
+      "average": 4.8,
+      "count": 110
+    },
+    "flags": {
+      "isBestseller": false,
+      "isNew": false,
+      "isLimited": true
+    },
+    "tags": [
+      "luxe",
+      "high-gloss",
+      "bar-light"
+    ]
+  },
+  {
+    "id": "muvelo-artisan",
+    "name": "Muvelo Artisan",
+    "collection": "Artisan Collection",
+    "badge": "ICONIC",
+    "slug": "muvelo-artisan",
+    "shortDescription": "Texture‑forward lamp with a crafted, hand‑finished surface.",
+    "longDescription": "Muvelo Artisan is our ode to hand‑finished surfaces – a lamp that feels like it belongs next to ceramics, books and art prints. The ribbed body throws soft shadows when lit, creating a rich sense of depth.",
+    "price": 16499,
+    "mrp": 21999,
+    "currency": "INR",
+    "images": {
+      "off": "/product7-off.png",
+      "on": "/product7.webp",
+      "gallery": [
+        "/product7.webp",
+        "/product7-off.png"
+      ],
+      "beforeAfter": {
+        "before": "/product7_before.png",
+        "after": "/product7_after.webp"
+      }
+    },
+    "primaryUse": ["Shelves", "Consoles", "Reading nooks"],
+    "colors": [
+      { "id": "terracotta", "name": "Terracotta", "hex": "#D38B5D", "isDefault": true }
+    ],
+    "materials": [
+      "Textured bio‑plastic shell",
+      "Matte metallic base"
+    ],
+    "lightModes": [
+      { "id": "story", "label": "Story time", "temperatureK": 2600, "description": "Soft enough to read, warm enough to unwind." }
+    ],
+    "battery": {
+      "lifeHours": "20+",
+      "chargeTimeHours": 3,
+      "connector": "USB‑C",
+      "fastChargeSupport": false,
+      "replaceable": false
+    },
+    "dimensions": {
+      "heightCm": 33,
+      "diameterCm": 17,
+      "weightKg": 0.9
+    },
+    "rating": {
+      "average": 4.7,
+      "count": 76
+    },
+    "flags": {
+      "isBestseller": false,
+      "isNew": false,
+      "isLimited": false
+    },
+    "tags": [
+      "artisan",
+      "textured",
+      "reading"
+    ]
+  },
+  {
+    "id": "muvelo-signature",
+    "name": "Muvelo Signature",
+    "collection": "Signature Collection",
+    "badge": "MOST LOVED",
+    "slug": "muvelo-signature",
+    "shortDescription": "All‑rounder lamp that works everywhere – from entry consoles to balconies.",
+    "longDescription": "Muvelo Signature is the lamp that started it all – a balanced silhouette, generous glow and easy placement. It’s the one our community keeps gifting, moving around the house and taking outdoors on cool evenings.",
+    "price": 24999,
+    "mrp": 29999,
+    "currency": "INR",
+    "images": {
+      "off": "/product8-off.png",
+      "on": "/product8.webp",
+      "gallery": [
+        "/product8.webp",
+        "/product8-off.png"
+      ],
+      "beforeAfter": {
+        "before": "/product7_before.png",
+        "after": "/product7_after.webp"
+      }
+    },
+    "primaryUse": ["Everywhere", "Balconies", "Terraces"],
+    "colors": [
+      { "id": "sunset", "name": "Soft Sunset", "hex": "#E58D6E", "isDefault": true }
+    ],
+    "materials": [
+      "Bio‑plastic shell",
+      "Aluminium core"
+    ],
+    "lightModes": [
+      { "id": "all-day", "label": "All‑day", "temperatureK": 3000, "description": "Do‑everything light for all spaces." }
+    ],
+    "battery": {
+      "lifeHours": "26+",
+      "chargeTimeHours": 3.5,
+      "connector": "USB‑C",
+      "fastChargeSupport": true,
+      "replaceable": false
+    },
+    "dimensions": {
+      "heightCm": 35,
+      "diameterCm": 18,
+      "weightKg": 1.0
+    },
+    "rating": {
+      "average": 4.9,
+      "count": 140
+    },
+    "flags": {
+      "isBestseller": true,
+      "isNew": false,
+      "isLimited": false
+    },
+    "tags": [
+      "signature",
+      "all-rounder",
+      "giftable"
+    ]
+  }
+]
+
+ 
+

@@ -63,3 +63,7 @@ The script will automatically:
 
 Just run `npm run upload:cloudinary` and wait. The script handles everything automatically! 🚀
 
+
+
+
+

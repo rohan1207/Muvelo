@@ -7,8 +7,8 @@ const BESTSELLERS_BASE = [
   {
     id: 1,
     badge: "NEW LAUNCH",
-    name: "Muvelo HÖT BLOX",
-    description: "Smart oil-filled heater with soft ambient glow.",
+    name: "Muvelo Classic ",
+    description: "Smart oil-filled heater with soft ambient glow this is a test description.",
     price: "₹13,999",
     mrp: "₹19,999",
     rating: "4.8",
@@ -18,8 +18,8 @@ const BESTSELLERS_BASE = [
   {
     id: 2,
     badge: "TRENDING",
-    name: "Muvelo HÖT BAR",
-    description: "Slim profile heater designed for modern homes.",
+    name: "Muvelo Modern",
+    description: "Slim profile heater designed for modern homes this is a test description.",
     price: "₹9,499",
     mrp: "₹14,999",
     rating: "4.9",
@@ -29,8 +29,8 @@ const BESTSELLERS_BASE = [
   {
     id: 3,
     badge: "ICONIC",
-    name: "Muvelo BRISK",
-    description: "Compact radiant heater with sculpted form.",
+    name: "Muvelo Elegant",
+    description: "Compact radiant heater with sculpted form this is a test description.",
     price: "₹7,999",
     mrp: "₹11,499",
     rating: "4.7",
@@ -40,8 +40,8 @@ const BESTSELLERS_BASE = [
   {
     id: 4,
     badge: "MOST LOVED",
-    name: "Muvelo REN PRO",
-    description: "All‑rounder cleaning companion for warm spaces.",
+    name: "Muvelo Premium",
+    description: "All‑rounder cleaning companion for warm spaces this is a test description.",
     price: "₹12,499",
     mrp: "₹17,999",
     rating: "4.9",
@@ -51,8 +51,8 @@ const BESTSELLERS_BASE = [
   {
     id: 5,
     badge: "NEW LAUNCH",
-    name: "Muvelo HÖT BLOX",
-    description: "Smart oil-filled heater with soft ambient glow.",
+    name: "Muvelo Studio",
+    description: "Smart oil-filled heater with soft ambient glow this is a test description.",
     price: "₹13,999",
     mrp: "₹19,999",
     rating: "4.8",
@@ -62,8 +62,8 @@ const BESTSELLERS_BASE = [
   {
     id: 6,
     badge: "TRENDING",
-    name: "Muvelo HÖT BAR",
-    description: "Slim profile heater designed for modern homes.",
+    name: "Muvelo Luxe",
+    description: "Slim profile heater designed for modern homes this is a test description.",
     price: "₹9,499",
     mrp: "₹14,999",
     rating: "4.9",
@@ -73,8 +73,8 @@ const BESTSELLERS_BASE = [
   {
     id: 7,
     badge: "ICONIC",
-    name: "Muvelo BRISK",
-    description: "Compact radiant heater with sculpted form.",
+    name: "Muvelo Artisan",
+    description: "Compact radiant heater with sculpted form this is a test description.",
     price: "₹7,999",
     mrp: "₹11,499",
     rating: "4.7",
@@ -84,8 +84,8 @@ const BESTSELLERS_BASE = [
   {
     id: 8,
     badge: "MOST LOVED",
-    name: "Muvelo REN PRO",
-    description: "All‑rounder cleaning companion for warm spaces.",
+    name: "Muvelo Signature",
+    description: "All‑rounder cleaning companion for warm spaces this is a test description.",
     price: "₹12,499",
     mrp: "₹17,999",
     rating: "4.9",
@@ -143,119 +143,106 @@ const BestSellers = ({ theme = "dark" }) => {
 
   return (
     <section
-      className={`w-full ${bgClass} py-20 sm:py-24 px-4 sm:px-8 overflow-hidden`}
+      className={`w-full ${bgClass} py-8 sm:py-12 md:py-14 lg:py-16 px-4 sm:px-6 md:px-8 overflow-hidden`}
     >
-      <div className="max-w-7xl mx-auto space-y-8 sm:space-y-10">
+      <div className="max-w-7xl mx-auto space-y-4 sm:space-y-5 md:space-y-6 lg:space-y-8">
         {/* Heading */}
-        <div className="space-y-3 sm:space-y-4">
+        <div className="space-y-1.5 sm:space-y-2 md:space-y-3">
           <h2
-            className={`text-3xl sm:text-4xl md:text-5xl font-bold ${headingColor}`}
+            className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold ${headingColor} leading-tight`}
           >
             Bestsellers this <span className="text-red-600">season</span>
           </h2>
-          <p className={`text-sm sm:text-base font-light ${subColor} max-w-xl`}>
+          <p className={`text-xs sm:text-sm md:text-base ${subColor} max-w-xl leading-relaxed`}>
             Curated pieces that our community keeps coming back to – warm
             silhouettes, timeless finishes, and effortless everyday luxury.
           </p>
         </div>
 
-        {/* Horizontal scroll area – clean, no edge fades, hidden scrollbar */}
+        {/* Horizontal scroll area – clean, matching Products.jsx style */}
         <div className="relative">
           <div
-            className="flex gap-6 sm:gap-8 overflow-x-auto pb-4 sm:pb-6 snap-x snap-mandatory scrollbar-hide"
+            className="flex gap-4 sm:gap-5 md:gap-6 lg:gap-7 overflow-x-auto pb-3 sm:pb-4 snap-x snap-mandatory scrollbar-hide -mx-4 sm:-mx-6 md:-mx-8 px-4 sm:px-6 md:px-8"
             style={{ scrollSnapType: "x mandatory" }}
           >
             {BESTSELLERS.map((item) => (
               <motion.article
                 key={item.id}
-                className={`snap-start flex-shrink-0 w-[230px] sm:w-[260px] md:w-[280px] rounded-3xl overflow-hidden ${cardBg} border ${cardBorder} ${cardShadow} relative group`}
-                whileHover={{ y: -8, scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
+                className="snap-start flex-shrink-0 w-[280px] sm:w-[300px] md:w-[320px] lg:w-[340px] relative group"
+                
+                // whileTap={{ scale: 0.98 }}
                 transition={{ type: "spring", stiffness: 260, damping: 26 }}
               >
-                {/* Badge */}
-                <div className="absolute top-4 left-4 z-20">
-                  <span className={`px-3 py-1 rounded-full ${badgeBg} text-[10px] tracking-[0.16em] uppercase ${badgeText} backdrop-blur-sm`}>
-                    {item.badge}
-                  </span>
-                </div>
-
-                {/* Product image */}
-                <div className={`relative ${imageBg} pt-10 pb-6 px-4`}>
-                  <div className="relative aspect-[4/5] flex items-center justify-center">
-                    {/* Glow behind product */}
-                    <div className={`absolute inset-0 rounded-full bg-gradient-to-t ${glowColor} via-transparent to-transparent blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                {/* Image - clean, no overlays, zoom and crop from top on hover */}
+                <div className="relative aspect-[4/5] rounded-lg overflow-hidden ">
+                  <div className="w-full h-full overflow-hidden">
                     <img
                       src={item.imageSrc}
                       alt={item.name}
-                      className={`max-h-full object-contain ${isDark ? 'drop-shadow-[0_18px_40px_rgba(0,0,0,0.65)]' : 'drop-shadow-[0_18px_40px_rgba(0,0,0,0.15)]'} transition-transform duration-500 group-hover:scale-[1.03]`}
                       loading="lazy"
                       decoding="async"
+                      className="w-full h-full object-cover transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.15] group-hover:-translate-y-[10%]"
+                      style={{ transformOrigin: 'center top' }}
                     />
                   </div>
-                </div>
 
-                {/* Meta / details */}
-                <div className="px-4 pb-4 space-y-2">
-                  {/* Rating + reviews */}
-                  <div className={`flex items-center justify-between text-[11px] ${ratingTextColor} mb-1`}>
-                    <div className="flex items-center gap-1">
-                      <span className="inline-flex items-center justify-center rounded-full bg-emerald-500/10 text-emerald-300 px-2 py-0.5 text-[10px] font-medium">
-                        ★ {item.rating}
-                      </span>
-                      <span className={`text-[10px] ${ratingBgColor}`}>
-                        ({item.reviews})
-                      </span>
-                    </div>
-                    <span className={`uppercase tracking-[0.16em] text-[9px] ${brandTextColor}`}>
-                      MUVELO
+                  {/* Badge - only on hover */}
+                  <div className="absolute top-2 sm:top-3 left-2 sm:left-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                    <span className={`px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-[9px] sm:text-[10px] tracking-[0.16em] uppercase backdrop-blur-md
+                      ${isDark ? 'bg-black/70 text-gray-100' : 'bg-white/80 text-black'}
+                    `}>
+                      {item.badge}
                     </span>
                   </div>
 
-                  <h3 className={`text-sm sm:text-[15px] font-medium ${productNameColor} line-clamp-2`}>
+                  {/* Rating - only on hover */}
+                  <div className={`absolute top-2 sm:top-3 right-2 sm:right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-1 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full text-[9px] sm:text-[10px] text-amber-300 backdrop-blur-md
+                    ${isDark ? 'bg-black/70' : 'bg-white/85 text-amber-500'}
+                  `}>
+                    <span>★ {item.rating}</span>
+                  </div>
+                </div>
+
+                {/* Below image – all text content - Nuuk style structure */}
+                <div className="flex flex-col gap-2 sm:gap-2.5 mt-3 sm:mt-3.5">
+                  {/* Product Name */}
+                  <h3 className={`text-base sm:text-lg font-bold ${productNameColor} leading-tight`}>
                     {item.name}
                   </h3>
-                  <p className={`text-[11px] ${productDescColor} line-clamp-2`}>
+
+                  {/* Description */}
+                  <p className={`text-xs sm:text-sm leading-relaxed ${productDescColor} line-clamp-2`}>
                     {item.description}
                   </p>
 
-                  {/* Price & CTA */}
-                  <div className="flex items-end justify-between pt-3">
-                    <div className="space-y-0.5">
-                      <p className={`text-xs ${mrpColor} line-through`}>
-                        {item.mrp}
-                      </p>
-                      <p className={`text-sm font-semibold ${priceColor}`}>
+                  {/* Price and Button Row - Nuuk style */}
+                  <div className="flex items-center justify-between gap-3 pt-1">
+                    {/* Price Section - Left */}
+                    <div className="flex flex-col gap-0.5">
+                      {item.mrp && (
+                        <span className={`text-xs sm:text-sm line-through ${mrpColor}`}>
+                          {item.mrp}
+                        </span>
+                      )}
+                      <span className={`text-base sm:text-lg font-bold ${priceColor}`}>
                         {item.price}
-                      </p>
+                      </span>
                     </div>
 
-                    <motion.div
-                      className="relative inline-block w-fit overflow-hidden rounded-full"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.98 }}
+                    {/* Add to Cart Button - Right, not full width */}
+                    <motion.button
+                      type="button"
+                      className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold tracking-[0.1em] uppercase transition-all duration-300 touch-manipulation whitespace-nowrap
+                        ${isDark
+                          ? 'bg-black text-white hover:bg-black/80 active:bg-black/70 border border-white/20'
+                          : 'bg-black text-white hover:bg-black/80 active:bg-black/70'
+                        }
+                      `}
+                      whileHover={{ y: -1 }}
+                      whileTap={{ scale: 0.97 }}
                     >
-                      <motion.button
-                        className={`relative z-10 inline-block ${buttonBg} text-white text-[11px] font-semibold tracking-[0.16em] uppercase px-4 py-2 rounded-full shadow-lg transition-colors duration-300 overflow-hidden`}
-                      >
-                        <span className="relative z-30">Add to cart</span>
-                        
-                        {/* Shiny glass shine effect - moves from left to right */}
-                        <motion.div
-                          className="absolute inset-0 z-20 rounded-full"
-                          initial={{ x: '-100%', skewX: '-20deg' }}
-                          whileHover={{ x: '200%' }}
-                          transition={{ 
-                            duration: 0.9,
-                            ease: [0.25, 0.1, 0.25, 1]
-                          }}
-                          style={{
-                            background: 'linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 30%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.3) 70%, transparent 100%)',
-                            width: '50%',
-                          }}
-                        />
-                      </motion.button>
-                    </motion.div>
+                      Add to Cart
+                    </motion.button>
                   </div>
                 </div>
               </motion.article>

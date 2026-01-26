@@ -13,15 +13,23 @@ import LiveDemo from '../components/LiveDemo';
 import WhyChooseUs from '../components/WhyChooseUs';
 import Ribbon from '../components/Ribbon';
 import OwnerMessage from '../components/OwnerMessage';
-import DynamicCarousel from '../components/DynamicCarousel';
+import DynamicCarousel3_4 from '../components/DynamicCarousel3_4';
+import LandingScreen from '../components/LandingScreen';
 
-function Home() {
+function Home3() {
   const lenisRef = useRef(null);
   const [theme, setTheme] = useState('dark');
+  const [showLanding, setShowLanding] = useState(true);
 
   const handleToggleTheme = () => {
     setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
   };
+
+  // Landing screen timeout
+  useEffect(() => {
+    const timer = setTimeout(() => setShowLanding(false), 2400);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Initialize Lenis smooth scroll with premium settings
   useEffect(() => {
@@ -56,6 +64,7 @@ function Home() {
 
   return (
     <div className="relative w-full overflow-x-hidden">
+      
       <NavBar theme={theme} />
       <ThemeToggle theme={theme} onToggleTheme={handleToggleTheme} />
       <Hero theme={theme} />
@@ -63,17 +72,19 @@ function Home() {
       <BestSellers theme={theme === 'dark' ? 'dark' : 'light'} />
       <ProductShowcase theme={theme === 'dark' ? 'dark' : 'light'} />
       <Banner theme={theme === 'dark' ? 'dark' : 'light'} />
-      
+
       <TrendingSocials theme={theme === 'dark' ? 'dark' : 'light'} />
       <LiveDemo theme={theme === 'dark' ? 'dark' : 'light'} />
       <WhyChooseUs theme={theme === 'dark' ? 'dark' : 'light'} />
       <Ribbon theme={theme === 'dark' ? 'dark' : 'light'} />
       <OwnerMessage theme={theme === 'dark' ? 'dark' : 'light'} />
-      <DynamicCarousel theme={theme === 'dark' ? 'dark' : 'light'} />
-      <WhyChooseUs theme={theme === 'dark' ? 'dark' : 'light'} />
+      <DynamicCarousel3_4 theme={theme === 'dark' ? 'dark' : 'light'} />
       <Footer theme={theme} />
     </div>
   );
 }
 
-export default Home;
+export default Home3;
+
+
+

@@ -52,30 +52,35 @@ function NavBar({ theme = 'dark' }) {
     };
   }, []);
 
+  // Match LiveDemo color theme
   const navBg = isDark
     ? 'bg-black/40 border-white/10'
     : 'bg-white/50 border-black/10';
-  const navTextColor = isDark ? 'text-white' : 'text-gray-900';
-  const inactiveLinkColor = isDark ? 'text-gray-300' : 'text-gray-700';
-  const activeLinkColor = isDark ? 'text-white' : 'text-black';
+  const navTextColor = isDark ? 'text-white' : 'text-[#1a1a1a]';
+  const inactiveLinkColor = isDark ? 'text-gray-300' : 'text-[#6B6B6B]';
+  const activeLinkColor = isDark ? 'text-white' : 'text-[#1a1a1a]';
 
   const navItems = [
-    { label: 'Home', to: '/' },
-    { label: 'Products', to: '/' },
-    { label: 'Collections', to: '/' },
-    { label: 'Blogs', to: '/' },
-    { label: 'About', to: '/' }
+    { label: 'Home', to: '/home3' },
+    { label: 'Products', to: '/products' },
+    { label: 'Collections', to: '/home3#collections' },
+    { label: 'Blogs', to: '/home3#blogs' },
+    { label: 'About', to: '/home3#about' }
   ];
 
   const isActive = (to) => {
     if (to === '/') return location.pathname === '/';
-    return location.pathname.startsWith(to);
+    if (to.startsWith('/home3') && location.pathname === '/home3') return true;
+    const basePath = to.split('#')[0];
+    return location.pathname.startsWith(basePath);
   };
 
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const iconButtonBase =
-    'w-10 h-10 rounded-full border flex items-center justify-center transition-colors duration-200 cursor-pointer';
+    'w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full border flex items-center justify-center transition-colors duration-200 cursor-pointer';
   const iconBorder = isDark ? 'border-white/20 hover:bg-white/10' : 'border-black/10 hover:bg-black/10';
   const iconStroke = isDark ? '#ffffff' : '#000000';
+  const iconSize = 'w-3.5 h-3.5 sm:w-4 sm:h-4';
 
   return (
     <header
@@ -93,23 +98,57 @@ function NavBar({ theme = 'dark' }) {
           pointer-events-auto
         `}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-3 items-center py-5 sm:py-6 gap-4">
-            {/* Left: Primary nav links */}
-            <div className="hidden md:flex items-center gap-3 lg:gap-5 text-xs sm:text-sm uppercase tracking-[0.18em] flex-1 justify-start -ml-2 sm:-ml-4">
-              {navItems.map((item) => (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  className={`
-                    ${inactiveLinkColor} hover:${activeLinkColor}
-                    transition-colors duration-200 whitespace-nowrap
-                    ${isActive(item.to) ? activeLinkColor : ''}
-                  `}
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+          <div className="grid grid-cols-3 items-center py-3 sm:py-4 md:py-5 lg:py-6 gap-2 sm:gap-3 md:gap-4">
+            {/* Left: Mobile Menu Button (small screens) + Primary nav links (medium+) */}
+            <div className="flex items-center gap-2 sm:gap-3">
+              {/* Mobile Menu Button */}
+              <button
+                type="button"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className={`md:hidden ${iconButtonBase} ${iconBorder}`}
+                aria-label="Menu"
+              >
+                <svg
+                  className={iconSize}
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke={iconStroke}
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
-                  {item.label}
-                </Link>
-              ))}
+                  {isMobileMenuOpen ? (
+                    <>
+                      <line x1="18" y1="6" x2="6" y2="18" />
+                      <line x1="6" y1="6" x2="18" y2="18" />
+                    </>
+                  ) : (
+                    <>
+                      <line x1="3" y1="12" x2="21" y2="12" />
+                      <line x1="3" y1="6" x2="21" y2="6" />
+                      <line x1="3" y1="18" x2="21" y2="18" />
+                    </>
+                  )}
+                </svg>
+              </button>
+
+              {/* Desktop Nav Links */}
+              <div className="hidden md:flex items-center gap-3 lg:gap-5 text-xs md:text-sm lg:text-base uppercase tracking-[0.18em] flex-1 justify-start -ml-2 sm:-ml-4">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.to}
+                    to={item.to}
+                    className={`
+                      ${inactiveLinkColor} hover:${activeLinkColor}
+                      transition-colors duration-200 whitespace-nowrap
+                      ${isActive(item.to) ? activeLinkColor : ''}
+                    `}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
             </div>
 
             {/* Center: Logo */}
@@ -123,20 +162,20 @@ function NavBar({ theme = 'dark' }) {
                     crop: 'scale',
                   })}
                   alt="MUVELO"
-                  className="h-12 sm:h-14 lg:h-16 w-auto object-contain scale-150"
+                  className="h-8 sm:h-10 md:h-12 lg:h-14 xl:h-16 w-auto object-contain scale-125 sm:scale-135 md:scale-150"
                 />
               </Link>
             </div>
 
             {/* Right: Contact + Icons */}
-            <div className="flex items-center gap-2 sm:gap-3 justify-end">
+            <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3 justify-end">
               {/* Contact Button */}
               <Link
                 to="/"
                 className={`
                   hidden sm:flex items-center
-                  px-3 sm:px-4 py-1.5 sm:py-2
-                  rounded-full border text-xs sm:text-sm uppercase tracking-[0.1em]
+                  px-2.5 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2
+                  rounded-full border text-[10px] sm:text-xs md:text-sm lg:text-base uppercase tracking-[0.18em] font-semibold
                   transition-all duration-200
                   ${isActive('/contact') 
                     ? isDark 
@@ -144,13 +183,14 @@ function NavBar({ theme = 'dark' }) {
                       : 'bg-black/10 border-black/30 text-black'
                     : isDark
                       ? 'border-white/20 text-gray-300 hover:bg-white/10 hover:text-white'
-                      : 'border-black/10 text-gray-700 hover:bg-black/10 hover:text-black'
+                      : 'border-black/10 text-[#6B6B6B] hover:bg-black/10 hover:text-[#1a1a1a]'
                   }
                 `}
               >
                 Contact
               </Link>
 
+              {/* Icons - Show fewer on mobile */}
               {/* Search */}
               <button
                 type="button"
@@ -158,8 +198,7 @@ function NavBar({ theme = 'dark' }) {
                 aria-label="Search"
               >
                 <svg
-                  width="16"
-                  height="16"
+                  className={iconSize}
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke={iconStroke}
@@ -172,15 +211,14 @@ function NavBar({ theme = 'dark' }) {
                 </svg>
               </button>
 
-              {/* Wishlist */}
+              {/* Wishlist - Hidden on very small screens */}
               <button
                 type="button"
-                className={`${iconButtonBase} ${iconBorder}`}
+                className={`hidden sm:flex ${iconButtonBase} ${iconBorder}`}
                 aria-label="Wishlist"
               >
                 <svg
-                  width="16"
-                  height="16"
+                  className={iconSize}
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke={iconStroke}
@@ -192,15 +230,14 @@ function NavBar({ theme = 'dark' }) {
                 </svg>
               </button>
 
-              {/* Account */}
+              {/* Account - Hidden on small screens */}
               <button
                 type="button"
-                className={`${iconButtonBase} ${iconBorder}`}
+                className={`hidden sm:flex ${iconButtonBase} ${iconBorder}`}
                 aria-label="Account"
               >
                 <svg
-                  width="16"
-                  height="16"
+                  className={iconSize}
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke={iconStroke}
@@ -220,8 +257,7 @@ function NavBar({ theme = 'dark' }) {
                 aria-label="Cart"
               >
                 <svg
-                  width="16"
-                  height="16"
+                  className={iconSize}
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke={iconStroke}
@@ -236,6 +272,43 @@ function NavBar({ theme = 'dark' }) {
               </button>
             </div>
           </div>
+
+          {/* Mobile Menu Dropdown */}
+          {isMobileMenuOpen && (
+            <div className="md:hidden border-t border-white/10 py-4 space-y-3">
+              {navItems.map((item) => (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`
+                    block px-4 py-2 text-sm uppercase tracking-[0.18em]
+                    transition-colors duration-200
+                    ${isActive(item.to) 
+                      ? activeLinkColor + ' font-semibold' 
+                      : inactiveLinkColor + ' hover:' + activeLinkColor
+                    }
+                  `}
+                >
+                  {item.label}
+                </Link>
+              ))}
+              <Link
+                to="/"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`
+                  block px-4 py-2 text-sm uppercase tracking-[0.18em] font-semibold
+                  transition-colors duration-200
+                  ${isActive('/contact') 
+                    ? activeLinkColor 
+                    : inactiveLinkColor + ' hover:' + activeLinkColor
+                  }
+                `}
+              >
+                Contact
+              </Link>
+            </div>
+          )}
         </div>
       </nav>
     </header>
