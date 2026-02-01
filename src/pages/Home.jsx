@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import Lenis from 'lenis';
+import { useTheme } from '../contexts/ThemeContext';
 import Hero from '../components/Hero';
 import NavBar from '../components/NavBar';
 import ThemeToggle from '../components/ThemeToggle';
@@ -17,11 +18,7 @@ import DynamicCarousel from '../components/DynamicCarousel';
 
 function Home() {
   const lenisRef = useRef(null);
-  const [theme, setTheme] = useState('dark');
-
-  const handleToggleTheme = () => {
-    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
-  };
+  const { theme, toggleTheme } = useTheme();
 
   // Initialize Lenis smooth scroll with premium settings
   useEffect(() => {
@@ -57,7 +54,7 @@ function Home() {
   return (
     <div className="relative w-full overflow-x-hidden">
       <NavBar theme={theme} />
-      <ThemeToggle theme={theme} onToggleTheme={handleToggleTheme} />
+      <ThemeToggle theme={theme} onToggleTheme={toggleTheme} />
       <Hero theme={theme} />
       <SecondSection theme={theme === 'dark' ? 'dark' : 'light'} />
       <BestSellers theme={theme === 'dark' ? 'dark' : 'light'} />

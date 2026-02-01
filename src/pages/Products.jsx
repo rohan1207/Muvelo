@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useTheme } from '../contexts/ThemeContext';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import ThemeToggle from '../components/ThemeToggle';
@@ -18,17 +19,13 @@ const searchInProduct = (product, query) => {
 };
 
 function Products() {
-  const [theme, setTheme] = useState('light');
+  const { theme, toggleTheme } = useTheme();
   const [query, setQuery] = useState('');
   const [collection, setCollection] = useState('all');
   const [flag, setFlag] = useState('all'); // all | bestseller | new | limited
   const [sort, setSort] = useState('featured'); // featured | price-asc | price-desc
 
   const isDark = theme === 'dark';
-
-  const handleToggleTheme = () => {
-    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
-  };
 
   const collections = useMemo(
     () => ['all', ...Array.from(new Set(productsData.map((p) => p.collection)))],
@@ -72,7 +69,7 @@ function Products() {
   return (
     <div className={`min-h-screen flex flex-col ${isDark ? 'bg-gradient-to-b from-black via-[#050505] to-black text-white' : 'bg-gradient-to-b from-[#FAF9F6] via-white to-[#FAF9F6] text-[#1a1a1a]'}`}>
       <NavBar theme={theme} />
-      <ThemeToggle theme={theme} onToggleTheme={handleToggleTheme} />
+      <ThemeToggle theme={theme} onToggleTheme={toggleTheme} />
 
       <motion.main
         initial={{ opacity: 0, y: 40 }}

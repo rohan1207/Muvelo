@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import Lenis from 'lenis';
+import { useTheme } from '../contexts/ThemeContext';
 import Hero from '../components/Hero';
 import NavBar from '../components/NavBar';
 import ThemeToggle from '../components/ThemeToggle';
@@ -15,15 +16,13 @@ import Ribbon from '../components/Ribbon';
 import OwnerMessage from '../components/OwnerMessage';
 import DynamicCarousel3_4 from '../components/DynamicCarousel3_4';
 import LandingScreen from '../components/LandingScreen';
+import LampOnOffSwitch from '../components/LampOnOffSwitch';
+import DynamicCarousel from '../components/DynamicCarousel';
 
 function Home3() {
   const lenisRef = useRef(null);
-  const [theme, setTheme] = useState('dark');
+  const { theme, toggleTheme } = useTheme();
   const [showLanding, setShowLanding] = useState(true);
-
-  const handleToggleTheme = () => {
-    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
-  };
 
   // Landing screen timeout
   useEffect(() => {
@@ -66,15 +65,16 @@ function Home3() {
     <div className="relative w-full overflow-x-hidden">
       
       <NavBar theme={theme} />
-      <ThemeToggle theme={theme} onToggleTheme={handleToggleTheme} />
+      <ThemeToggle theme={theme} onToggleTheme={toggleTheme} />
       <Hero theme={theme} />
       <SecondSection theme={theme === 'dark' ? 'dark' : 'light'} />
       <BestSellers theme={theme === 'dark' ? 'dark' : 'light'} />
       <ProductShowcase theme={theme === 'dark' ? 'dark' : 'light'} />
       <Banner theme={theme === 'dark' ? 'dark' : 'light'} />
-
+      <DynamicCarousel theme={theme === 'dark' ? 'dark' : 'light'} />
       <TrendingSocials theme={theme === 'dark' ? 'dark' : 'light'} />
       <LiveDemo theme={theme === 'dark' ? 'dark' : 'light'} />
+      <LampOnOffSwitch theme={theme === 'dark' ? 'dark' : 'light'} />
       <WhyChooseUs theme={theme === 'dark' ? 'dark' : 'light'} />
       <Ribbon theme={theme === 'dark' ? 'dark' : 'light'} />
       <OwnerMessage theme={theme === 'dark' ? 'dark' : 'light'} />

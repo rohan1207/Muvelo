@@ -1,0 +1,245 @@
+[
+  {
+    "id": "lampshade-vaari-classic",
+    "name": "Vaari Classic Lampshade",
+    "slug": "vaari-classic-lampshade",
+    "collection": "Vaari",
+    "system": "bullet",
+    "compatibleSystems": ["bullet"],
+    "compatibleCollections": ["Vaari", "Ekkam", "Ekkam Max"],
+    "shortDescription": "Interchangeable lampshade for Bullet System lamps",
+    "price": 2999,
+    "mrp": 3999,
+    "currency": "INR",
+    "images": {
+      "primary": "/lampshade-vaari-classic.png",
+      "onBullet": "/lampshade-vaari-on-bullet.png",
+      "gallery": [
+        "/lampshade-vaari-classic.png",
+        "/lampshade-vaari-on-bullet.png"
+      ]
+    },
+    "colors": [
+      { "id": "sandstone", "name": "Sandstone", "hex": "#E9D5B5", "isDefault": true },
+      { "id": "charcoal", "name": "Charcoal", "hex": "#1A1A1A" }
+    ],
+    "attachInfo": "Snaps onto Bullet System base with magnetic connection",
+    "flags": {
+      "isBestseller": true,
+      "isNew": false
+    }
+  },
+  {
+    "id": "lampshade-ekkam-minimal",
+    "name": "Ekkam Minimal Lampshade",
+    "slug": "ekkam-minimal-lampshade",
+    "collection": "Ekkam",
+    "system": "bullet",
+    "compatibleSystems": ["bullet"],
+    "compatibleCollections": ["Vaari", "Ekkam", "Ekkam Max"],
+    "shortDescription": "Clean, focused form for Bullet System",
+    "price": 3499,
+    "mrp": 4499,
+    "currency": "INR",
+    "images": {
+      "primary": "/lampshade-ekkam-minimal.png",
+      "onBullet": "/lampshade-ekkam-on-bullet.png",
+      "gallery": [
+        "/lampshade-ekkam-minimal.png",
+        "/lampshade-ekkam-on-bullet.png"
+      ]
+    },
+    "colors": [
+      { "id": "cloud", "name": "Cloud Grey", "hex": "#D4D4D8", "isDefault": true },
+      { "id": "ink", "name": "Ink Black", "hex": "#111111" }
+    ],
+    "attachInfo": "Magnetic attachment to Bullet System base",
+    "flags": {
+      "isBestseller": false,
+      "isNew": true
+    }
+  },
+  {
+    "id": "lampshade-orran-sculptural",
+    "name": "Orran Sculptural Lampshade",
+    "slug": "orran-sculptural-lampshade",
+    "collection": "Orran",
+    "system": "coremount",
+    "compatibleSystems": ["coremount"],
+    "compatibleCollections": ["Orran", "Treya", "Pico", "Statti", "Valenza", "Bravena", "Stallora"],
+    "shortDescription": "Sculptural lampshade for CoreMount System",
+    "price": 4999,
+    "mrp": 6499,
+    "currency": "INR",
+    "images": {
+      "primary": "/lampshade-orran-sculptural.png",
+      "onCoreMount": "/lampshade-orran-on-coremount.png",
+      "gallery": [
+        "/lampshade-orran-sculptural.png",
+        "/lampshade-orran-on-coremount.png"
+      ]
+    },
+    "colors": [
+      { "id": "clay", "name": "Soft Clay", "hex": "#E1BFA5", "isDefault": true },
+      { "id": "stone", "name": "Stone", "hex": "#C4C4C4" }
+    ],
+    "attachInfo": "Threads onto CoreMount System base with secure lock",
+    "flags": {
+      "isBestseller": true,
+      "isNew": false
+    }
+  },
+  {
+    "id": "lampshade-treya-alternative",
+    "name": "Treya Alternative Lampshade",
+    "slug": "treya-alternative-lampshade",
+    "collection": "Treya",
+    "system": "coremount",
+    "compatibleSystems": ["coremount"],
+    "compatibleCollections": ["Orran", "Treya", "Pico", "Statti", "Valenza", "Bravena", "Stallora"],
+    "shortDescription": "Alternative proportion for CoreMount System",
+    "price": 4999,
+    "mrp": 6499,
+    "currency": "INR",
+    "images": {
+      "primary": "/lampshade-treya-alternative.png",
+      "onCoreMount": "/lampshade-treya-on-coremount.png",
+      "gallery": [
+        "/lampshade-treya-alternative.png",
+        "/lampshade-treya-on-coremount.png"
+      ]
+    },
+    "colors": [
+      { "id": "amber", "name": "Amber Glow", "hex": "#F6A623", "isDefault": true },
+      { "id": "terracotta", "name": "Terracotta", "hex": "#D38B5D" }
+    ],
+    "attachInfo": "CoreMount System compatible, same family as Orran",
+    "flags": {
+      "isBestseller": false,
+      "isNew": false
+    }
+  },
+  {
+    "id": "lampshade-pico-compact",
+    "name": "Pico Compact Lampshade",
+    "slug": "pico-compact-lampshade",
+    "collection": "Pico",
+    "system": "coremount",
+    "compatibleSystems": ["coremount"],
+    "compatibleCollections": ["Orran", "Treya", "Pico", "Statti", "Valenza", "Bravena", "Stallora"],
+    "shortDescription": "Compact lampshade for intimate lighting",
+    "price": 3999,
+    "mrp": 4999,
+    "currency": "INR",
+    "images": {
+      "primary": "/lampshade-pico-compact.png",
+      "onCoreMount": "/lampshade-pico-on-coremount.png",
+      "gallery": [
+        "/lampshade-pico-compact.png",
+        "/lampshade-pico-on-coremount.png"
+      ]
+    },
+    "colors": [
+      { "id": "chalk", "name": "Chalk White", "hex": "#F5F5F5", "isDefault": true },
+      { "id": "cloud", "name": "Cloud Grey", "hex": "#D4D4D8" }
+    ],
+    "attachInfo": "Fits CoreMount base, perfect for bedside use",
+    "flags": {
+      "isBestseller": false,
+      "isNew": true
+    }
+  },
+  {
+    "id": "lampshade-valenza-ceiling",
+    "name": "Valenza Ceiling Lampshade",
+    "slug": "valenza-ceiling-lampshade",
+    "collection": "Valenza",
+    "system": "coremount",
+    "compatibleSystems": ["coremount"],
+    "compatibleCollections": ["Orran", "Treya", "Pico", "Statti", "Valenza", "Bravena", "Stallora"],
+    "shortDescription": "Ceiling-mounted lampshade for architectural lighting",
+    "price": 5999,
+    "mrp": 7499,
+    "currency": "INR",
+    "images": {
+      "primary": "/lampshade-valenza-ceiling.png",
+      "onCoreMount": "/lampshade-valenza-on-coremount.png",
+      "gallery": [
+        "/lampshade-valenza-ceiling.png",
+        "/lampshade-valenza-on-coremount.png"
+      ]
+    },
+    "colors": [
+      { "id": "stone", "name": "Stone", "hex": "#C4C4C4", "isDefault": true },
+      { "id": "charcoal", "name": "Charcoal", "hex": "#1A1A1A" }
+    ],
+    "attachInfo": "CoreMount System, fixed installation for ceilings",
+    "flags": {
+      "isBestseller": false,
+      "isNew": false
+    }
+  },
+  {
+    "id": "lampshade-bravena-wall",
+    "name": "Bravena Wall Lampshade",
+    "slug": "bravena-wall-lampshade",
+    "collection": "Bravena",
+    "system": "coremount",
+    "compatibleSystems": ["coremount"],
+    "compatibleCollections": ["Orran", "Treya", "Pico", "Statti", "Valenza", "Bravena", "Stallora"],
+    "shortDescription": "Wall-mounted lampshade for accent lighting",
+    "price": 5499,
+    "mrp": 6999,
+    "currency": "INR",
+    "images": {
+      "primary": "/lampshade-bravena-wall.png",
+      "onCoreMount": "/lampshade-bravena-on-coremount.png",
+      "gallery": [
+        "/lampshade-bravena-wall.png",
+        "/lampshade-bravena-on-coremount.png"
+      ]
+    },
+    "colors": [
+      { "id": "ink", "name": "Ink Black", "hex": "#111111", "isDefault": true },
+      { "id": "cloud", "name": "Cloud Grey", "hex": "#D4D4D8" }
+    ],
+    "attachInfo": "CoreMount System, wall-mounted with secure bracket",
+    "flags": {
+      "isBestseller": false,
+      "isNew": false
+    }
+  },
+  {
+    "id": "lampshade-stallora-floor",
+    "name": "Stallora Floor Lampshade",
+    "slug": "stallora-floor-lampshade",
+    "collection": "Stallora",
+    "system": "coremount",
+    "compatibleSystems": ["coremount"],
+    "compatibleCollections": ["Orran", "Treya", "Pico", "Statti", "Valenza", "Bravena", "Stallora"],
+    "shortDescription": "Tall statement lampshade for floor lamps",
+    "price": 6499,
+    "mrp": 7999,
+    "currency": "INR",
+    "images": {
+      "primary": "/lampshade-stallora-floor.png",
+      "onCoreMount": "/lampshade-stallora-on-coremount.png",
+      "gallery": [
+        "/lampshade-stallora-floor.png",
+        "/lampshade-stallora-on-coremount.png"
+      ]
+    },
+    "colors": [
+      { "id": "clay", "name": "Soft Clay", "hex": "#E1BFA5", "isDefault": true },
+      { "id": "stone", "name": "Stone", "hex": "#C4C4C4" }
+    ],
+    "attachInfo": "CoreMount System, tall presence for living spaces",
+    "flags": {
+      "isBestseller": true,
+      "isNew": false
+    }
+  }
+]
+
+
+

@@ -2,6 +2,7 @@ import { useMemo, useState, useRef, useEffect } from 'react';
 import { ShieldCheck, RotateCcw, Truck, CreditCard } from 'lucide-react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTheme } from '../contexts/ThemeContext';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import ThemeToggle from '../components/ThemeToggle';
@@ -34,7 +35,7 @@ function ProductDetail() {
     return filled.slice(0, 4);
   }, [product]);
 
-  const [theme, setTheme] = useState('light');
+  const { theme, toggleTheme } = useTheme();
   const topSectionRef = useRef(null);
   const [activeImage, setActiveImage] = useState(0);
   const [activeSection, setActiveSection] = useState('tech');
@@ -46,10 +47,6 @@ function ProductDetail() {
   );
 
   const isDark = theme === 'dark';
-
-  const handleToggleTheme = () => {
-    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
-  };
 
   const [showFloatingSummary, setShowFloatingSummary] = useState(false);
 
@@ -189,7 +186,7 @@ function ProductDetail() {
   return (
     <div className={`min-h-screen flex flex-col ${isDark ? 'bg-gradient-to-b from-black via-[#050505] to-black text-white' : 'bg-gradient-to-b from-[#FAF9F6] via-white to-[#FAF9F6] text-[#1a1a1a]'}`}>
       <NavBar theme={theme} />
-      <ThemeToggle theme={theme} onToggleTheme={handleToggleTheme} />
+      <ThemeToggle theme={theme} onToggleTheme={toggleTheme} />
 
       <motion.main
         initial={{ opacity: 0, y: 40 }}
@@ -199,7 +196,7 @@ function ProductDetail() {
       >
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10 lg:space-y-12">
           {/* Breadcrumb + back */}
-          <div className={`flex items-center justify-between text-[10px] sm:text-xs lg:text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+          <div className={`flex items-center justify-between text-xs sm:text-xs lg:text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
             <button
               type="button"
               onClick={() => navigate(-1)}
@@ -337,7 +334,7 @@ function ProductDetail() {
                  `}>
                   <div className="flex flex-wrap items-center justify-between gap-1">
                     <div>
-                       <p className={`text-[9px] sm:text-[10px] lg:text-xs uppercase tracking-[0.22em] ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                       <p className={`text-[11px] sm:text-[10px] lg:text-xs uppercase tracking-[0.22em] ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
                         Before / After
                       </p>
                        <p className={`text-xs sm:text-sm lg:text-sm font-medium ${isDark ? 'text-white' : 'text-slate-900'}`}>
@@ -379,7 +376,7 @@ function ProductDetail() {
                       className="absolute top-1/2 -translate-y-1/2"
                       style={{ left: `${sliderValue}%`, transform: 'translate(-50%, -50%)' }}
                     >
-                      <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white shadow-[0_8px_24px_rgba(15,23,42,0.28)] flex items-center justify-center text-slate-500 text-[10px] sm:text-xs pointer-events-none">
+                      <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white shadow-[0_8px_24px_rgba(15,23,42,0.28)] flex items-center justify-center text-slate-500 text-xs sm:text-xs pointer-events-none">
                         ↔
                       </div>
                     </div>
@@ -402,26 +399,26 @@ function ProductDetail() {
              <div className="space-y-4 sm:space-y-5 lg:space-y-7 lg:sticky lg:top-32">
               {/* Title & badges */}
               <div className="space-y-2 sm:space-y-3">
-                 <div className={`flex flex-wrap gap-1.5 sm:gap-2 text-[10px] sm:text-xs lg:text-sm uppercase tracking-[0.18em] ${isDark ? 'text-gray-300' : 'text-[#6B6B6B]'}`}>
+                 <div className={`flex flex-wrap gap-1.5 sm:gap-2 text-xs sm:text-xs lg:text-sm uppercase tracking-[0.18em] ${isDark ? 'text-gray-300' : 'text-[#6B6B6B]'}`}>
                   <span>{product.collection}</span>
                   {product.badge && (
-                    <span className={`px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border text-[10px] sm:text-xs ${isDark ? 'bg-red-600/20 text-red-400 border-red-600/30' : 'bg-red-600/10 text-red-600 border-red-600/20'}`}>
+                    <span className={`px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border text-xs sm:text-xs ${isDark ? 'bg-red-600/20 text-red-400 border-red-600/30' : 'bg-red-600/10 text-red-600 border-red-600/20'}`}>
                       {product.badge}
                     </span>
                   )}
                   {product.flags?.isBestseller && (
-                    <span className={`px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border text-[10px] sm:text-xs ${isDark ? 'bg-amber-500/20 text-amber-300 border-amber-500/30' : 'bg-amber-50 text-amber-700 border-amber-100'}`}>
+                    <span className={`px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border text-xs sm:text-xs ${isDark ? 'bg-amber-500/20 text-amber-300 border-amber-500/30' : 'bg-amber-50 text-amber-700 border-amber-100'}`}>
                       Bestseller
                     </span>
                   )}
                 </div>
-                 <h1 className={`text-xl sm:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold tracking-tight leading-tight ${isDark ? 'text-white' : 'text-[#1a1a1a]'}`}>
+                 <h1 className={`text-2xl sm:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold tracking-tight leading-tight ${isDark ? 'text-white' : 'text-[#1a1a1a]'}`}>
                   {product.name}
                 </h1>
-                 <p className={`text-xs sm:text-sm lg:text-base leading-relaxed max-w-xl ${isDark ? 'text-gray-300' : 'text-[#6B6B6B]'}`}>
+                 <p className={`text-sm sm:text-sm lg:text-base leading-relaxed max-w-xl ${isDark ? 'text-gray-300' : 'text-[#6B6B6B]'}`}>
                   {product.longDescription}
                 </p>
-                 <div className={`flex items-center gap-2 text-xs sm:text-sm lg:text-base pt-1 ${isDark ? 'text-gray-300' : 'text-[#6B6B6B]'}`}>
+                 <div className={`flex items-center gap-2 text-sm sm:text-sm lg:text-base pt-1 ${isDark ? 'text-gray-300' : 'text-[#6B6B6B]'}`}>
                   <span className="inline-flex items-center gap-1">
                     <span className="text-amber-500">★</span>
                     <span>{product.rating?.average?.toFixed(1) ?? '4.8'}</span>
@@ -435,37 +432,37 @@ function ProductDetail() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3">
                 <div className={`rounded-lg px-2.5 sm:px-3 py-2 sm:py-2.5 ${isDark ? 'bg-white/8' : 'bg-slate-50'}`}>
                   <p
-                    className={`font-semibold text-[10px] sm:text-xs lg:text-sm uppercase tracking-[0.18em] mb-1 ${
+                    className={`font-semibold text-xs sm:text-xs lg:text-sm uppercase tracking-[0.18em] mb-1 ${
                       isDark ? 'text-white' : 'text-[#1a1a1a]'
                     }`}
                   >
                     Soft glow
                   </p>
-                  <p className={`text-[10px] sm:text-xs lg:text-sm leading-relaxed ${isDark ? 'text-gray-300' : 'text-[#6B6B6B]'}`}>
+                  <p className={`text-xs sm:text-xs lg:text-sm leading-relaxed ${isDark ? 'text-gray-300' : 'text-[#6B6B6B]'}`}>
                     Fully diffused light that flatters skin tones & dinner tables.
                   </p>
                 </div>
                 <div className={`rounded-lg px-2.5 sm:px-3 py-2 sm:py-2.5 ${isDark ? 'bg-white/8' : 'bg-slate-50'}`}>
                   <p
-                    className={`font-semibold text-[10px] sm:text-xs lg:text-sm uppercase tracking-[0.18em] mb-1 ${
+                    className={`font-semibold text-xs sm:text-xs lg:text-sm uppercase tracking-[0.18em] mb-1 ${
                       isDark ? 'text-white' : 'text-[#1a1a1a]'
                     }`}
                   >
                     All‑day battery
                   </p>
-                  <p className={`text-[10px] sm:text-xs lg:text-sm leading-relaxed ${isDark ? 'text-gray-300' : 'text-[#6B6B6B]'}`}>
+                  <p className={`text-xs sm:text-xs lg:text-sm leading-relaxed ${isDark ? 'text-gray-300' : 'text-[#6B6B6B]'}`}>
                     {product.battery?.lifeHours || '24+'} hours of cable‑free glow on a full charge.
                   </p>
                 </div>
                 <div className={`rounded-lg px-2.5 sm:px-3 py-2 sm:py-2.5 ${isDark ? 'bg-white/8' : 'bg-slate-50'}`}>
                   <p
-                    className={`font-semibold text-[10px] sm:text-xs lg:text-sm uppercase tracking-[0.18em] mb-1 ${
+                    className={`font-semibold text-xs sm:text-xs lg:text-sm uppercase tracking-[0.18em] mb-1 ${
                       isDark ? 'text-white' : 'text-[#1a1a1a]'
                     }`}
                   >
                     Crafted here
                   </p>
-                  <p className={`text-[10px] sm:text-xs lg:text-sm leading-relaxed ${isDark ? 'text-gray-300' : 'text-[#6B6B6B]'}`}>
+                  <p className={`text-xs sm:text-xs lg:text-sm leading-relaxed ${isDark ? 'text-gray-300' : 'text-[#6B6B6B]'}`}>
                     Designed & made in India in small batches, QC‑checked one by one.
                   </p>
                 </div>
@@ -483,7 +480,7 @@ function ProductDetail() {
                     </span>
                   )}
                   {product.mrp && product.price && (
-                    <span className="text-[10px] sm:text-xs font-semibold text-emerald-600 px-2 py-0.5 sm:py-1 rounded-full bg-emerald-50">
+                    <span className="text-xs sm:text-xs font-semibold text-emerald-600 px-2 py-0.5 sm:py-1 rounded-full bg-emerald-50">
                       Save&nbsp;
                       {Math.round(((product.mrp - product.price) / product.mrp) * 100)}
                       %
@@ -492,17 +489,17 @@ function ProductDetail() {
                 </div>
 
                 {/* Delivery promise */}
-                 <p className={`text-[10px] sm:text-xs rounded-full inline-flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1 w-fit
+                 <p className={`text-xs sm:text-xs rounded-full inline-flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1 w-fit
                    ${isDark ? 'text-emerald-300 bg-emerald-900/40' : 'text-emerald-700 bg-emerald-50'}
                  `}>
-                  <span className="text-[8px] sm:text-[10px]">●</span>
+                  <span className="text-[9px] sm:text-[10px]">●</span>
                   <span className="leading-tight">Order today for dispatch in 24 hours. Pan‑India delivery in 3–5 days.</span>
                 </p>
 
                 <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-1">
                   {/* Quantity */}
                   <div className="flex items-center gap-2 sm:gap-3">
-                    <span className={`text-slate-500 uppercase tracking-[0.16em] text-[9px] sm:text-[10px] lg:text-[11px] ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                    <span className={`text-slate-500 uppercase tracking-[0.16em] text-[11px] sm:text-[10px] lg:text-[11px] ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
                       Quantity
                     </span>
                     <div className={`inline-flex items-center rounded-full border overflow-hidden ${isDark ? 'border-white/20' : 'border-slate-200'}`}>
@@ -531,7 +528,7 @@ function ProductDetail() {
                 {(product.primaryUse || []).map((use) => (
                   <span
                     key={use}
-                     className={`px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs ${isDark ? 'bg-white/10 text-slate-200' : 'bg-slate-100 text-slate-700'}`}
+                     className={`px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs sm:text-xs ${isDark ? 'bg-white/10 text-slate-200' : 'bg-slate-100 text-slate-700'}`}
                   >
                     {use}
                   </span>
@@ -568,7 +565,7 @@ function ProductDetail() {
               </div>
 
               {/* Policy icons */}
-              <div className={`grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 pt-1 text-[9px] sm:text-[10px] lg:text-[11px] ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+              <div className={`grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 pt-1 text-[11px] sm:text-[10px] lg:text-[11px] ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
                 <div className="flex items-start gap-1.5 sm:gap-2">
                   <div
                     className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
@@ -578,7 +575,7 @@ function ProductDetail() {
                     <ShieldCheck size={14} className="sm:w-4 sm:h-4" />
                   </div>
                   <div className="space-y-0.5 min-w-0">
-                    <span className="font-medium block text-[9px] sm:text-[10px] lg:text-[11px]">1‑year warranty</span>
+                    <span className="font-medium block text-[11px] sm:text-[10px] lg:text-[11px]">1‑year warranty</span>
                     <span className={`text-[8px] sm:text-[9px] lg:text-[10px] ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Against manufacturing defects.</span>
                   </div>
                 </div>
@@ -591,7 +588,7 @@ function ProductDetail() {
                     <RotateCcw size={14} className="sm:w-4 sm:h-4" />
                   </div>
                   <div className="space-y-0.5 min-w-0">
-                    <span className="font-medium block text-[9px] sm:text-[10px] lg:text-[11px]">7‑day returns</span>
+                    <span className="font-medium block text-[11px] sm:text-[10px] lg:text-[11px]">7‑day returns</span>
                     <span className={`text-[8px] sm:text-[9px] lg:text-[10px] ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Easy replacement if anything is off.</span>
                   </div>
                 </div>
@@ -604,7 +601,7 @@ function ProductDetail() {
                     <Truck size={14} className="sm:w-4 sm:h-4" />
                   </div>
                   <div className="space-y-0.5 min-w-0">
-                    <span className="font-medium block text-[9px] sm:text-[10px] lg:text-[11px]">Free shipping</span>
+                    <span className="font-medium block text-[11px] sm:text-[10px] lg:text-[11px]">Free shipping</span>
                     <span className={`text-[8px] sm:text-[9px] lg:text-[10px] ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Above a minimum cart value.</span>
                   </div>
                 </div>
@@ -617,17 +614,17 @@ function ProductDetail() {
                     <CreditCard size={14} className="sm:w-4 sm:h-4" />
                   </div>
                   <div className="space-y-0.5 min-w-0">
-                    <span className="font-medium block text-[9px] sm:text-[10px] lg:text-[11px]">COD available</span>
+                    <span className="font-medium block text-[11px] sm:text-[10px] lg:text-[11px]">COD available</span>
                     <span className={`text-[8px] sm:text-[9px] lg:text-[10px] ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Pay on delivery in most pin codes.</span>
                   </div>
                 </div>
               </div>
 
               {/* Energy & safety callout */}
-               <div className={`mt-2 sm:mt-3 rounded-lg border px-3 sm:px-4 py-2 sm:py-3 text-[9px] sm:text-[10px] lg:text-[11px] space-y-1 sm:space-y-1.5
+               <div className={`mt-2 sm:mt-3 rounded-lg border px-3 sm:px-4 py-2 sm:py-3 text-[11px] sm:text-[10px] lg:text-[11px] space-y-1 sm:space-y-1.5
                  ${isDark ? 'border-white/10 bg-white/5 text-slate-200' : 'border-slate-200 bg-slate-50 text-slate-700'}
                `}>
-                 <p className={`font-semibold text-[10px] sm:text-[11px] lg:text-sm ${isDark ? 'text-white' : 'text-slate-900'}`}>Good to know</p>
+                 <p className={`font-semibold text-[11px] sm:text-[11px] lg:text-sm ${isDark ? 'text-white' : 'text-slate-900'}`}>Good to know</p>
                 <p>Consumes less than 6W – cheaper than a regular bulb to keep on all evening.</p>
                 <p>Tested for 10,000+ on/off cycles for everyday reliability.</p>
               </div>
@@ -657,7 +654,7 @@ function ProductDetail() {
                           animate={{ height: 'auto', opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.25, ease: 'easeOut' }}
-                           className={`px-3 sm:px-4 lg:px-5 pb-2.5 sm:pb-3 lg:pb-4 text-[10px] sm:text-xs lg:text-sm space-y-1 sm:space-y-1.5 border-t
+                           className={`px-3 sm:px-4 lg:px-5 pb-2.5 sm:pb-3 lg:pb-4 text-xs sm:text-xs lg:text-sm space-y-1 sm:space-y-1.5 border-t
                              ${isDark ? 'text-slate-300 border-white/10' : 'text-slate-600 border-slate-200'}
                            `}
                         >
@@ -680,7 +677,7 @@ function ProductDetail() {
               <h2 className={`text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight leading-tight ${isDark ? 'text-white' : 'text-[#1a1a1a]'}`}>FAQs</h2>
 
               {/* Tabs */}
-               <div className="flex gap-2 sm:gap-3 lg:gap-4 text-[10px] sm:text-xs uppercase tracking-[0.2em] overflow-x-auto scrollbar-hide">
+               <div className="flex gap-2 sm:gap-3 lg:gap-4 text-xs sm:text-xs uppercase tracking-[0.2em] overflow-x-auto scrollbar-hide">
                 {['product', 'troubleshooting', 'technical'].map((tab) => (
                   <button
                     key={tab}
@@ -705,7 +702,7 @@ function ProductDetail() {
                     className="group"
                   >
                     <summary
-                      className={`flex items-center justify-between px-3 sm:px-4 lg:px-5 py-2.5 sm:py-3 lg:py-3.5 cursor-pointer text-[11px] sm:text-[13px] lg:text-sm font-medium list-none
+                      className={`flex items-center justify-between px-3 sm:px-4 lg:px-5 py-2.5 sm:py-3 lg:py-3.5 cursor-pointer text-xs sm:text-[13px] lg:text-sm font-medium list-none
                         ${isDark ? 'text-slate-100' : 'text-slate-800'}
                       `}
                     >
@@ -714,7 +711,7 @@ function ProductDetail() {
                       <span className={`ml-2 flex-shrink-0 text-sm sm:text-base ${isDark ? 'text-slate-400' : 'text-slate-400'} hidden group-open:inline`}>−</span>
                     </summary>
                     <div
-                      className={`px-3 sm:px-4 lg:px-5 pb-2.5 sm:pb-3 lg:pb-4 text-[10px] sm:text-xs lg:text-sm ${
+                      className={`px-3 sm:px-4 lg:px-5 pb-2.5 sm:pb-3 lg:pb-4 text-xs sm:text-xs lg:text-sm ${
                         isDark ? 'text-slate-300' : 'text-slate-600'
                       }`}
                     >
@@ -730,14 +727,14 @@ function ProductDetail() {
                   Why Muvelo vs a generic lamp?
                 </h2>
                  <div className={`overflow-hidden rounded-lg border ${isDark ? 'border-white/10 bg-white/5' : 'border-slate-200 bg-white'}`}>
-                   <div className={`grid grid-cols-3 text-[9px] sm:text-[10px] lg:text-xs font-medium border-b px-2 sm:px-3 lg:px-4 py-2 sm:py-2.5
+                   <div className={`grid grid-cols-3 text-[11px] sm:text-[10px] lg:text-xs font-medium border-b px-2 sm:px-3 lg:px-4 py-2 sm:py-2.5
                      ${isDark ? 'text-slate-200 border-white/10 bg-white/5' : 'text-slate-500 border-slate-200 bg-slate-50'}
                    `}>
                     <span />
                     <span className={isDark ? 'text-white' : 'text-slate-900'}>{product.name}</span>
                     <span className={isDark ? 'text-slate-200' : 'text-slate-500'}>Generic lamp</span>
                   </div>
-                   <div className={`divide-y text-[9px] sm:text-[10px] lg:text-xs ${isDark ? 'divide-white/10' : 'divide-slate-200'}`}>
+                   <div className={`divide-y text-[11px] sm:text-[10px] lg:text-xs ${isDark ? 'divide-white/10' : 'divide-slate-200'}`}>
                     <div className="grid grid-cols-3 px-2 sm:px-3 lg:px-4 py-2 sm:py-2.5">
                       <span className={isDark ? 'text-slate-400' : 'text-slate-500'}>Light quality</span>
                       <span className={isDark ? 'text-slate-100' : 'text-slate-900'}>Soft, diffused glow</span>
@@ -769,7 +766,7 @@ function ProductDetail() {
               <div className="space-y-2 sm:space-y-3">
                  <div className="flex items-center justify-between gap-2">
                    <h2 className={`text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight leading-tight ${isDark ? 'text-white' : 'text-[#1a1a1a]'}`}>People love {product.name}</h2>
-                   <div className={`flex items-center gap-1 text-[10px] sm:text-xs flex-shrink-0 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                   <div className={`flex items-center gap-1 text-xs sm:text-xs flex-shrink-0 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
                     <span className="text-amber-500">★</span>
                     <span>{product.rating?.average?.toFixed(1) ?? '4.8'}</span>
                     <span>•</span>
@@ -788,8 +785,8 @@ function ProductDetail() {
                         alt={`Customer view ${idx + 1}`}
                         className="w-full h-20 sm:h-24 lg:h-28 object-cover"
                       />
-                       <div className={`px-2 sm:px-3 py-1.5 sm:py-2 text-[9px] sm:text-[10px] lg:text-[11px] space-y-0.5 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-                         <div className="flex items-center gap-0.5 sm:gap-1 text-amber-500 text-[8px] sm:text-[9px] lg:text-xs">
+                       <div className={`px-2 sm:px-3 py-1.5 sm:py-2 text-[11px] sm:text-[10px] lg:text-[11px] space-y-0.5 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+                         <div className="flex items-center gap-0.5 sm:gap-1 text-amber-500 text-[9px] sm:text-[9px] lg:text-xs">
                           {'★'.repeat(5)}
                         </div>
                         <p className="line-clamp-2 leading-tight">
@@ -809,7 +806,7 @@ function ProductDetail() {
                  <h2 className={`text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight leading-tight ${isDark ? 'text-white' : 'text-[#1a1a1a]'}`}>
                 You may also like
               </h2>
-              <span className={`text-[9px] sm:text-[10px] lg:text-[11px] uppercase tracking-[0.18em] ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+              <span className={`text-[11px] sm:text-[10px] lg:text-[11px] uppercase tracking-[0.18em] ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
                 Curated picks from the Muvelo collection
               </span>
             </div>
@@ -835,10 +832,10 @@ function ProductDetail() {
                       />
                     </div>
                      <div className="px-2 sm:px-3 py-2 sm:py-2.5 space-y-1 sm:space-y-1.5">
-                       <p className={`text-[10px] sm:text-[11px] font-medium line-clamp-2 ${isDark ? 'text-white' : 'text-slate-900'}`}>
+                       <p className={`text-[11px] sm:text-[11px] font-medium line-clamp-2 ${isDark ? 'text-white' : 'text-slate-900'}`}>
                         {p.name}
                       </p>
-                       <p className={`text-[9px] sm:text-[10px] ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{p.collection}</p>
+                       <p className={`text-[10px] sm:text-[10px] ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{p.collection}</p>
                        <p className={`text-[10px] sm:text-[11px] font-semibold ${isDark ? 'text-white' : 'text-slate-900'}`}>
                         {formatPrice(p.price)}
                       </p>
